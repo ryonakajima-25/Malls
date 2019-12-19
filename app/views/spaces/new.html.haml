@@ -1,0 +1,23 @@
+.form
+  %a リーシング区画を登録
+  .form-square
+    = form_for @space  do |f|
+      %li 所在地：
+      = f.text_field :location, class: 'location'
+      %li 施設名称：
+      = f.text_field :mall_name, class: 'mall_name'
+      %li 階数：
+      = f.text_field :floor, class: 'floor'
+      %li 区画番号：
+      = f.text_field :block_number, class: 'block_number'
+      %li 面積（m2）：
+      = f.text_field :area, class: 'area'
+      %li 月額賃料：
+      = f.text_field :rent, class: 'rent'
+      %li 募集業種：
+      = f.text_field :sector, class: 'sector'
+      %li 画像、写真：
+      = f.text_field :image, class: 'image'
+      
+      = f.submit 'Send', class: 'send-btn'
+
