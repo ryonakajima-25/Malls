@@ -1,0 +1,26 @@
+.account-page {
+  padding: 30px;
+  &__form-title {
+    h2 {
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+  &__form-box {
+    // color: red;
+    &__field {
+      // color: blue;
+    }
+    &__actions {
+      input {
+        height: 50px;
+        width: 80px;
+        background-color: yellow;
+        margin: 15px auto;
+        text-align: center;
+        border: solid black 2px;
+        display: inline-block;
+      }
+    }
+  }
+}

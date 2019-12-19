@@ -46,5 +46,14 @@ $color_3:rgb(211, 211, 211);
     margin: 0 auto;
     padding: 30px;
     background-color: $color_3;
+    .send-btn {
+      height: 50px;
+      width: 80px;
+      background-color: yellow;
+      margin: 15px auto;
+      text-align: center;
+      border: solid black 2px;
+      display: inline-block;
+    }
   }
 }
