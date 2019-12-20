@@ -1,5 +1,5 @@
 class SpacesController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @spaces = Space.all.order("updated_at DESC")
@@ -41,6 +41,10 @@ class SpacesController < ApplicationController
 
   def set_space
     @space = Space.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to action: :index unless developer_signed_in?
   end
 
 end
