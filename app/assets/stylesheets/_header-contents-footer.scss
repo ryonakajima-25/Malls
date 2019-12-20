@@ -8,11 +8,12 @@ header {
   background-color: $color_0;
   line-height: 60px;
   position: relative;
+  font-size: 24px;
   a.logo {
-    font-size: 30px;
+    font-size: 50px;
     font-weight: bold;
     color: white;
-    padding-left: 30px;
+    padding-left: 50px;
     display: inline-block;
     text-decoration: none;
   }
@@ -21,8 +22,14 @@ header {
     right: 50px;
     top: 0px;
     display: flex;
+    line-height: 60px;
+    #name {
+      padding-right: 20px;
+    }
     a {
-      padding: 0 15px;
+      color: black;
+      text-decoration: none;
+      padding: 0 10px;
       display: inline-block;
     }
     a:hover {
@@ -45,6 +52,7 @@ footer {
   background-color: $color_2;
   text-align: center;
   line-height: 20px;
+  margin: 0 auto;
   p {
     font-size: 5px;
   }

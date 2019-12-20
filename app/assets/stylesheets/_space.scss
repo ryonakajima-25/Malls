@@ -3,48 +3,81 @@ $color_1:rgb(173, 216, 230);
 $color_2:rgb(128, 128, 128);
 $color_3:rgb(211, 211, 211);
 
+.contents {
+  padding: 15px;
+  .content {
+    height: 100%;
+    background-color: $color_3;
+    .about-malls {
+      height: 200px;
+      font-size: 18px;
+      background-color: white;
+      padding: 15px;
+      margin: 0 auto;
+      margin-bottom: 15px;
+      border: solid 2px $color_2;
+      line-height: 1.5em;
+      overflow-x: scroll;
+      white-space: nowrap;
+      p:first-of-type{
+        font-size: 22px;
+        padding-bottom: 8px;
+      }
+      p:last-child {
+        color: red;
+        font-weight: bold;
+      }
+    }
 
 
-.content {
-  height: 100%;
-  background-color: $color_3;
-  .about-malls {
-    height: 150px;
-    width: 90%;
-    background-color: white;
-    padding: 15px;
-    margin: 0 auto;
-    margin-bottom: 15px;
-    border: solid 2px $color_2;
-    p:last-child {
-      color: red;
+    .space-list {
+      width: calc(90% + 30px);
+      margin: 0 auto;
+      border: solid 2px $color_2;
+      &__box {
+        margin: 15px;
+        padding: 10px;
+        background-color: $color_1;
+        position: relative;
+        li {
+          text-decoration: none;
+        }
+        .action-btn {
+          font-size: 15px;
+          position: absolute;
+          right: 5px;
+          top: 5px;
+        }
+      }
+    }
+  }
+
+  .form {
+    padding: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    .form-title {
+      font-size: 32px;
       font-weight: bold;
     }
-  }
-
-
-  .space-list {
-    width: calc(90% + 30px);
-    margin: 0 auto;
-    border: solid 2px $color_2;
-    &__box {
-      margin: 15px;
-      padding: 10px;
-      background-color: $color_1;
+    .form-square {
+      border: solid 2px $color_2;
+      font-weight: lighter;
+      height: 450px;
+      width: 700px;
+      margin: 15px auto;
+      padding: 30px;
+      line-height: 1.5em;
+      background-color: $color_3;
+      .send-btn {
+        height: 50px;
+        width: 80px;
+        background-color: yellow;
+        margin: 15px auto;
+        text-align: center;
+        border: solid black 2px;
+        display: inline-block;
+      }
     }
-  }
-}
-
-.form {
-  padding-left: 50px;
-  font-size: 30px;
-  font-weight: bold;
-  .form-square {
-    border: solid 2px $color_2;
-    height: 1500px;
-    width: 700px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: $color_3;
   }
 }

@@ -2,10 +2,20 @@
     TODO will need to remove settings on HTML since we can't namespace it.
     TODO with the prefix, should I group by selector or property for weight savings?
 */
+@font-face {
+  font-family: 'FLOP';
+  src: url('flopdesign.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html{
   color:#000;
   background:#FFF;
+  font-family: 'FLOP';
 }
+
+
 /*
   TODO remove settings on BODY since we can't namespace it.
 */
@@ -102,7 +112,7 @@ sub {
 input,
 textarea,
 select {
-  font-family:inherit;
+  // font-family:inherit;
   font-size:inherit;
   font-weight:inherit;
   *font-size:100%; /*to enable resizing for IE*/
