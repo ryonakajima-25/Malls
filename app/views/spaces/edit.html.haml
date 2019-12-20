@@ -1,0 +1,32 @@
+.form
+  %a.form-title リーシング区画を編集
+  %ul.form-square
+    = form_for @space  do |f|
+
+      %p
+        = f.label :name, "所在地：　　　"
+        = f.text_field :location, class: 'location', placeholder: "location"
+      %p
+        = f.label :name, "施設名称：　　"
+        = f.text_field :mall_name, class: 'mall_name', placeholder: "mall_name"
+      %p
+        = f.label :name, "階数：　　　　"
+        = f.text_field :floor, class: 'floor', placeholder: "floor"
+      %p
+        = f.label :name, "区画番号：　　"
+        = f.text_field :block_number, class: 'block_number', placeholder: "block_number"
+      %p
+        = f.label :name, "面積（㎡）：　"
+        = f.text_field :area, class: 'area', placeholder: "area"
+      %p
+        = f.label :name, "月額賃料：　　"
+        = f.text_field :rent, class: 'rent', placeholder: "rent"
+      %p
+        = f.label :name, "募集業種：　　"
+        = f.text_field :sector, class: 'sector', placeholder: "sector"
+      %p
+        = f.label :name, "画像、写真：　"
+        = f.text_field :image, class: 'image', placeholder: "image"
+      %a
+        = f.submit '送信', class: 'send-btn'
+

@@ -10,9 +10,8 @@
     %header
       %a.logo{ :href => '/' } Malls
       .link-list
-        
         -if developer_signed_in?
-          %p ログインユーザー：
+          %p ログイン：
           #name= current_developer.name
           = link_to '募集区画登録', new_space_path
           = link_to 'ログアウト',  destroy_developer_session_path , :method => :delete
