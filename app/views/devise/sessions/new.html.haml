@@ -6,12 +6,10 @@
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
 
       .account-page__form-box__field
-        = f.label :メールアドレス
-        %br/
+        = f.label :メールアドレス　　　　
         = f.email_field :email, autofocus: true, autocomplete: "email"
       .account-page__form-box__field
-        = f.label :パスワード
-        %br/
+        = f.label :パスワード　　　　　　
         = f.password_field :password, autocomplete: "current-password"
       - if devise_mapping.rememberable?
         .account-page__form-box__field

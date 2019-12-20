@@ -2,19 +2,22 @@
   padding: 30px;
   &__form-title {
     h2 {
-      font-size: 25px;
+      font-size: 32px;
       font-weight: bold;
     }
   }
   &__form-box {
-    // color: red;
+    padding: 15px;
+    font-size: 20px;
+    line-height: 2em;
     &__field {
-      // color: blue;
+      color: black;
+      text-decoration: none;
     }
     &__actions {
       input {
         height: 50px;
-        width: 80px;
+        width: 120px;
         background-color: yellow;
         margin: 15px auto;
         text-align: center;
