@@ -4,29 +4,30 @@
     = form_for @space  do |f|
 
       %p
-        = f.label :name, "所在地：　　　"
+        = f.label :location, "所在地：　　　"
         = f.text_field :location, class: 'location'
       %p
-        = f.label :name, "施設名称：　　"
+        = f.label :mall_name, "施設名称：　　"
         = f.text_field :mall_name, class: 'mall_name'
       %p
-        = f.label :name, "階数：　　　　"
+        = f.label :floor, "階数：　　　　"
         = f.text_field :floor, class: 'floor'
       %p
-        = f.label :name, "区画番号：　　"
+        = f.label :block_number, "区画番号：　　"
         = f.text_field :block_number, class: 'block_number'
       %p
-        = f.label :name, "面積（㎡）：　"
+        = f.label :area, "面積（㎡）：　"
         = f.text_field :area, class: 'area'
       %p
-        = f.label :name, "月額賃料：　　"
+        = f.label :rent, "月額賃料：　　"
         = f.text_field :rent, class: 'rent'
       %p
-        = f.label :name, "募集業種：　　"
+        = f.label :sector, "募集業種：　　"
         = f.text_field :sector, class: 'sector'
       %p
-        = f.label :name, "画像、写真：　"
-        = f.text_field :image, class: 'image'
+        = f.label :image, "画像、写真：　"
+        = icon('fas', 'image', class: 'icon') do
+          = f.file_field :image, class: 'image'
       %a
         = f.submit '送信', class: 'send-btn'
 
