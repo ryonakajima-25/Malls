@@ -1,8 +1,4 @@
 
-
--# %header
--#   %a{ :href => '/'} Malls
-
 .contents
   .content
     .about-malls.slide-wrap
@@ -11,16 +7,9 @@
       %p 　・ECと平行した実店舗による出店で、マーケティング調査を実施したい
       %p 　・新規の商業施設を開業する予定だが、想定来館者に響くようなテナントを誘致したい　　等々
       %p 両者の要望を解決するソリューションサービスです。
-      %p 弊社は、世間に大量発生する「汗かくパフォーマンスを正義とする営業マン」の削減に挑戦します！
+      %p 弊社は、世間に溢れる「汗かくパフォーマンスを正義とする営業マン」の削減に挑戦します！
 
 
     .space-list
       - @spaces.each do |space|
-        %ul.space-list__box
-          %li  所在地：#{space.location}
-          %li  施設名称：「#{space.mall_name}」フロア：#{space.floor}階
-          %li  面積：#{space.area}（㎡）／#{space.area * 0.3025}(坪)
-          .action-btn
-            = link_to '詳細', space_path(space.id)
-            = link_to '編集', edit_space_path(space.id)
-            = link_to '削除', space_path(space.id), method: :delete
+        = render partial: "space", locals: { space: space }

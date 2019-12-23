@@ -39,8 +39,17 @@ $color_3:rgb(211, 211, 211);
         padding: 10px;
         background-color: $color_1;
         position: relative;
-        li {
-          text-decoration: none;
+        display: flex;
+        &__left {
+          width: 400px;
+          line-height: 1.5em;
+          ul {
+            li {
+              text-decoration: none;
+            }
+          }
+        }
+        &__right {
         }
         .action-btn {
           font-size: 15px;
@@ -51,6 +60,8 @@ $color_3:rgb(211, 211, 211);
       }
     }
   }
+
+// --------------------new,edit-------------------------------
 
   .form {
     padding: 30px;
@@ -69,6 +80,11 @@ $color_3:rgb(211, 211, 211);
       padding: 30px;
       line-height: 1.5em;
       background-color: $color_3;
+      .fa-image {
+        font-size: 60px;
+        cursor: pointer;
+
+      }
       .send-btn {
         height: 50px;
         width: 80px;
@@ -80,4 +96,8 @@ $color_3:rgb(211, 211, 211);
       }
     }
   }
+}
+
+.hidden {
+  display: none;
 }
