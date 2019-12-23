@@ -13,9 +13,30 @@ class BrandsController < ApplicationController
     redirect_to '/'
   end
 
-  private
-  def brand_params
-    params.require(:brand).permit(:name, :category_large, :category_small, :target_sex, :target_age, :area_max, :area_min, :sales_record)#.merge(tenant_id: current_tenant.id)
+  def destroy
+    brand = brand.find(params[:id])
+    brand.destroy
   end
 
+  def edit
+    set_brand
+  end
+
+  def update
+    brand = Brand.find(params[:id])
+    brand.update(brand_params)
+  end
+
+  def show
+    set_brand
+  end
+
+  private
+  def brand_params
+    params.require(:brand).permit(:name, :category_large, :category_small, :target_sex, :target_age, :area_max, :area_min, :sales_record, :image).merge(tenant_id: current_tenant.id)
+  end
+
+  def set_brand
+    @brand = Brand.find(params[:id])
+  end
 end

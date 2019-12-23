@@ -3,6 +3,8 @@ $color_1:rgb(173, 216, 230);
 $color_2:rgb(128, 128, 128);
 $color_3:rgb(211, 211, 211);
 
+// -----------------------header-------------------------------
+
 header {
   height: 60px;
   background-color: $color_0;
@@ -16,6 +18,12 @@ header {
     padding-left: 50px;
     display: inline-block;
     text-decoration: none;
+  }
+   a {
+    font-size: 12px;
+    text-decoration: none;
+    color: white;
+    padding: 0 5px;
   }
   .link-list {
     position: absolute;
@@ -38,6 +46,8 @@ header {
   }
 }
 
+// -----------------------------------contents--------------------------
+
 .contents {
   background-color: $color_3;
   margin: 0 15px;
@@ -45,6 +55,32 @@ header {
 }
 
 
+
+.top {
+  width: 1000px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  line-height: 400px;
+  &__left {
+    width: 400px;
+    height: 400px;
+    background-color: orange;
+  }
+  &__right {
+    width: 400px;
+    height: 400px;
+    background-color: blue;
+  }
+
+}
+
+// -----------------------------footer-----------------------------
 
 footer {
   height: 20px;

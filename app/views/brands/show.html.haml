@@ -1,0 +1,19 @@
+.brand-show
+  .brand-show__title
+    #{@brand.name}詳細ページです
+  .brand-show__info
+    .brand-show__info__image
+      = image_tag @brand.image
+    .brand-show__info__list
+      %p ブランド名：　　　#{@brand.name}
+
+      %p 業種：　　　　　　#{@brand.category_large}／#{@brand.category_small}
+
+      %p 対象性別：　　　　#{@brand.target_sex}
+
+      %p 対象年齢：　　　　#{@brand.target_age}
+
+      %p 適正面積（坪）：　#{@brand.area_min}〜#{@brand.area_max}
+      - if @brand.sales_record.present?
+        %p 既存店売上：　　　#{@brand.sales_record}
+

@@ -27,6 +27,12 @@
       %p
         既存店売上：　　　
         = f.text_area :sales_record, class: 'sales_record'
+      %p
+        画像、写真：　
+        %label
+          = icon('fas', 'image')
+          = f.file_field :image, class: 'hidden'
+
       
       %a
         = f.submit '送信', class: 'send-btn'
