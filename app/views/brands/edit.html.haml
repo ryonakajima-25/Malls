@@ -1,0 +1,38 @@
+.form
+  %a.form-title ブランドを編集
+  %ul.form-square
+    = form_for @brand  do |f|
+
+      %p
+        ブランド名：　　　
+        = f.text_field :name, class: 'name', placeholder: 'name'
+      %p
+        業種選択：　　　　
+        = f.text_field :category_large, class: 'category_large', placeholder: 'category_large'
+      %p
+        業種入力：　　　　
+        = f.text_field :category_small, class: 'category_small', placeholder: 'category_small'
+      %p
+        対象性別：　　　　
+        = f.text_field :target_sex, class: 'target_sex', placeholder: 'target_sex'
+      %p
+        対象年齢：　　　　
+        = f.text_field :target_age, class: 'target_max', placeholder: 'target_max'
+      %p
+        適正面積（最小）：
+        = f.text_field :area_min, class: 'area_min', placeholder: 'area_min'
+      %p
+        対象年齢（最大）：
+        = f.text_field :area_max, class: 'area_max', placeholder: 'area_max'
+      %p
+        既存店売上：　　　
+        = f.text_area :sales_record, class: 'sales_record', placeholder: 'sales_record'
+      %p
+        画像、写真：　
+        %label
+          = icon('fas', 'image')
+          = f.file_field :image, class: 'hidden', placeholder: 'image'
+
+      
+      %a
+        = f.submit '送信', class: 'send-btn'

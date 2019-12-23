@@ -1,9 +1,8 @@
 class DevelopersController < ApplicationController
 
   def show
-    @name = current_developer.name
-    @space = current_developer.spaces
+    developer = Developer.find(params[:id])
+    @name = developer.name
+    @spaces = developer.spaces
   end
-
-
 end

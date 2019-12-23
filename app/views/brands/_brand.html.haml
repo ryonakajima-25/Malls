@@ -1,0 +1,23 @@
+.brand-list__box
+  %ul.brand-list__box__left
+    %li ブランド名：#{brand.name}
+    %li 業種：#{brand.category_large}／#{brand.category_small}
+    %li 対象性別：#{brand.target_sex}
+    %li 対象年齢：#{brand.target_age}
+    %li 適正面積：#{brand.area_min}〜#{brand.area_max}
+    投稿者：#{brand.tenant.company}
+    -# = link_to tenant_path(brand.tenant_id) do
+    = brand.tenant.name
+
+  .brand-list__box__right
+    - if brand.image.present?
+      = image_tag brand.image.url
+
+    - if tenant_signed_in?
+      .action-btn
+        = link_to '詳細', brand_path(brand.id)
+        - if current_tenant.id == brand.tenant_id
+          = link_to '編集', edit_brand_path(brand.id)
+          = link_to '削除', brand_path(brand.id), method: :delete
+
+

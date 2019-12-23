@@ -1,4 +1,3 @@
-
 .contents
   .content
     .about-malls.slide-wrap
@@ -9,7 +8,6 @@
       %p 両者の要望を解決するソリューションサービスです。
       %p 弊社は、世間に溢れる「汗かくパフォーマンスを正義とする営業マン」の削減に挑戦します！
 
-
-    .space-list
-      - @spaces.each do |space|
-        = render partial: "space", locals: { space: space }
+    .brand-list
+      - @brands.each do |brand|
+        = render partial: "brand", locals: { brand: brand }
