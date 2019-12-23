@@ -1,0 +1,13 @@
+.brand-list__box
+  %ul.brand-list__box__left
+    %li ブランド名：#{brand.name}
+    %li 業種：#{brand.category_large}／#{brand.category_small}
+    %li 対象性別：#{brand.target_sex}
+    %li 対象年齢：#{brand.target_age}
+    %li 適正面積：#{brand.area_min}〜#{brand.area_max}
+
+  .brand-list__box__right
+    .action-btn
+      = link_to '詳細', space_path(brand.id)
+      = link_to '編集', edit_space_path(brand.id)
+      = link_to '削除', space_path(brand.id), method: :delete

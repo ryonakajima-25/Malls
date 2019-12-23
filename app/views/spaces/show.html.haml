@@ -1,2 +1,22 @@
-#{@space.mall_name}詳細ページです
+.space-show
+  .space-show__title
+    #{@space.mall_name}詳細ページです
+  .space-show__info
+    .space-show__info__image
+      = image_tag @space.image
+    .space-show__info__list
+      %p 所在地：　　　　#{@space.location}
 
+      %p 施設名称：　　　#{@space.mall_name}
+
+      %p フロア：　　　　#{@space.floor}階
+
+      %p 区画番号：　　　#{@space.block_number}
+
+      %p 面積：　　　　　#{@space.area}（㎡）／#{(@space.area * 0.3025).floor(2)}（坪）
+
+      %p 月額賃料：　　　#{@space.rent.to_s(:delimited)}（円／月）
+
+      %p 坪あたりの賃料：＠#{(@space.rent / (@space.area * 0.3025)).floor(2)}（円）
+
+      %p 誘致希望業種　：#{@space.sector}

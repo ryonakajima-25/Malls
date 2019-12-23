@@ -30,7 +30,7 @@ $color_3:rgb(211, 211, 211);
     }
 
 
-    .space-list {
+    .space-list, .brand-list{
       width: calc(90% + 30px);
       margin: 0 auto;
       border: solid 2px $color_2;
@@ -100,4 +100,19 @@ $color_3:rgb(211, 211, 211);
 
 .hidden {
   display: none;
+}
+
+
+// --------------------show---------------------
+
+.space-show {
+  width: 100%;
+  &__title {
+    font-size: 32px;
+  }
+  &__info {
+    padding: 50px;
+    font-size: 26px;
+    line-height: 1.5em;
+  }
 }
