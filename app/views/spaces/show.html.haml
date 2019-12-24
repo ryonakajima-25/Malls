@@ -3,15 +3,12 @@
     #{@space.mall_name}詳細ページです
 
   .space-show__nice
-    %h3 ナイス件数：
-    = @space.nices.count
-    - if current_tenant.already_niced?(@space)
+    %h3 ナイス件数：#{@space.nices.count}
+    - if tenant_signed_in? && current_tenant.already_niced?(@space)
       = button_to 'ナイスを取り消す', space_nice_path(@space), method: :delete
-    - else
+    - elsif tenant_signed_in?
       = button_to 'ナイス！！', space_nices_path(@space)
-    -# %3 ナイスしたユーザー
-    -# - @space.niced_tenants.each do |tenant|
-    -#   = tenant.company
+    - else
 
   .space-show__info
     .space-show__info__image
