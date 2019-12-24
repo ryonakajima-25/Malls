@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :spaces do
     resources :nices, only: [:create, :destroy]
   end
-  resources :brands
+  resources :brands do
+    resources :goods, only: [:create, :destroy]
+  end
   resources :developers, only: :show
   resources :tenants, only: :show
 

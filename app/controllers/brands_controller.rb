@@ -31,6 +31,7 @@ class BrandsController < ApplicationController
 
   def show
     set_brand
+    @good = Good.new
   end
 
   private
