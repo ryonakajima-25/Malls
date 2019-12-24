@@ -1,4 +1,6 @@
 class BrandsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show]
+
   def index
     @brands = Brand.all.order("updated_at DESC")
   end
@@ -39,4 +41,9 @@ class BrandsController < ApplicationController
   def set_brand
     @brand = Brand.find(params[:id])
   end
+
+  def move_to_index
+    redirect_to action: :index unless tenant_signed_in?
+  end
+
 end

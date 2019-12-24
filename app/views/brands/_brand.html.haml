@@ -6,8 +6,8 @@
     %li 対象年齢：#{brand.target_age}
     %li 適正面積：#{brand.area_min}〜#{brand.area_max}
     投稿者：#{brand.tenant.company}
-    -# = link_to tenant_path(brand.tenant_id) do
-    = brand.tenant.name
+    = link_to tenant_path(brand.tenant_id) do
+      = brand.tenant.name
 
   .brand-list__box__right
     - if brand.image.present?

@@ -1,5 +1,7 @@
 .top
   .top__left 
-    = link_to '出店希望はコチラ', spaces_path
+    = link_to spaces_path, class: "top__left__btn" do
+      出店希望はコチラ 
   .top__right
-    = link_to '施設所有者はコチラ', brands_path
+    = link_to brands_path, class: 'top__right__btn' do
+      施設所有者はコチラ 

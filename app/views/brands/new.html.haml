@@ -4,31 +4,31 @@
     = form_for @brand  do |f|
 
       %p
-        ブランド名：　　　
+        ブランド名：　　　　　
         = f.text_field :name, class: 'name'
       %p
-        業種選択：　　　　
+        業種選択：　　　　　　
         = f.text_field :category_large, class: 'category_large'
       %p
-        業種入力：　　　　
+        業種入力：　　　　　　
         = f.text_field :category_small, class: 'category_small'
       %p
-        対象性別：　　　　
+        対象性別：　　　　　　
         = f.text_field :target_sex, class: 'target_sex'
       %p
-        対象年齢：　　　　
+        対象年齢：　　　　　　
         = f.text_field :target_age, class: 'target_max'
       %p
-        適正面積（最小）：
+        最小適正面積（／坪）：
         = f.text_field :area_min, class: 'area_min'
       %p
-        対象年齢（最大）：
+        最大適正面積（／坪）：
         = f.text_field :area_max, class: 'area_max'
       %p
-        既存店売上：　　　
+        既存店売上：　　　　　
         = f.text_area :sales_record, class: 'sales_record'
       %p
-        画像、写真：　
+        画像、写真：　　　　　
         %label
           = icon('fas', 'image')
           = f.file_field :image, class: 'hidden'
