@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191223095729) do
+ActiveRecord::Schema.define(version: 20191224085054) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                         null: false
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 20191223095729) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_developers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "nices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "space_id"
+    t.integer  "tenant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_nices_on_space_id", using: :btree
+    t.index ["tenant_id"], name: "index_nices_on_tenant_id", using: :btree
   end
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -74,5 +83,7 @@ ActiveRecord::Schema.define(version: 20191223095729) do
     t.index ["reset_password_token"], name: "index_tenants_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "nices", "spaces"
+  add_foreign_key "nices", "tenants"
   add_foreign_key "spaces", "developers"
 end

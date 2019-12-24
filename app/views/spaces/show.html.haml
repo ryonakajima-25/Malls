@@ -1,6 +1,18 @@
 .space-show
   .space-show__title
     #{@space.mall_name}詳細ページです
+
+  .space-show__nice
+    %h3 ナイス件数：
+    = @space.nices.count
+    - if current_tenant.already_niced?(@space)
+      = button_to 'ナイスを取り消す', space_nice_path(@space), method: :delete
+    - else
+      = button_to 'ナイス！！', space_nices_path(@space)
+    -# %3 ナイスしたユーザー
+    -# - @space.niced_tenants.each do |tenant|
+    -#   = tenant.company
+
   .space-show__info
     .space-show__info__image
       = image_tag @space.image
