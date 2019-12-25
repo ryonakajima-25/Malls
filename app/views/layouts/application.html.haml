@@ -6,11 +6,8 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application','data-turbolinks-track' => true
     = csrf_meta_tags
-    %script{ src: "http://maps.google.com/maps/api/js?key=AIzaSyA9AOwpJ5blV_b0WNiAKk-CTPNfirbghzA&language=ja"}
-    :css
-      html { height: 100% }
-      body { height: 100% }
-      #map { height: 450px; width: 450px}
+    %script{ src: "http://maps.google.com/maps/api/js?&region=JP&key=AIzaSyA9AOwpJ5blV_b0WNiAKk-CTPNfirbghzA&language=ja"}
+
 
 
   %body

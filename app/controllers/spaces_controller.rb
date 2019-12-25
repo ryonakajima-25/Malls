@@ -34,7 +34,6 @@ class SpacesController < ApplicationController
     @nice = Nice.new
   end
 
-
   private
   def space_params
     params.require(:space).permit(:location, :mall_name, :floor, :block_number, :area, :rent, :sector, :image).merge(developer_id: current_developer.id)
