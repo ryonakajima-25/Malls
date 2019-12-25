@@ -13,19 +13,29 @@
   .space-show__info
     .space-show__info__image
       = image_tag @space.image
-    .space-show__info__list
-      %p 所在地：　　　　#{@space.location}
+      .space-show__info__list
+        %p 所在地：　　　　#{@space.location}
 
-      %p 施設名称：　　　#{@space.mall_name}
+        %p 施設名称：　　　#{@space.mall_name}
 
-      %p フロア：　　　　#{@space.floor}階
+        %p フロア：　　　　#{@space.floor}階
 
-      %p 区画番号：　　　#{@space.block_number}
+        %p 区画番号：　　　#{@space.block_number}
 
-      %p 面積：　　　　　#{@space.area}（㎡）／#{(@space.area * 0.3025).floor(2)}（坪）
+        %p 面積：　　　　　#{@space.area}（㎡）／#{(@space.area * 0.3025).floor(2)}（坪）
 
-      %p 月額賃料：　　　#{@space.rent.to_s(:delimited)}（円／月）
+        %p 月額賃料：　　　#{@space.rent.to_s(:delimited)}（円／月）
 
-      %p 坪あたりの賃料：＠#{(@space.rent / (@space.area * 0.3025)).floor(2)}（円）
+        %p 坪あたりの賃料：＠#{(@space.rent / (@space.area * 0.3025)).floor(2)}（円）
 
-      %p 誘致希望業種　：#{@space.sector}
+        %p 誘致希望業種　：#{@space.sector}
+
+    .space-show__info__map
+      #map
+      :javascript
+        var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
+        var Options = {
+        zoom: 14,      //地図の縮尺値
+        center: MyLatLng,    //地図の中心座標
+        };
+        var map = new google.maps.Map(document.getElementById('map'), Options);
