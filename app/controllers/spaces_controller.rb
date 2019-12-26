@@ -31,8 +31,8 @@ class SpacesController < ApplicationController
 
   def show
     set_space
+    @nice = Nice.new
   end
-
 
   private
   def space_params

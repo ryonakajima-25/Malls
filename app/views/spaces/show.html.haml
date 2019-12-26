@@ -1,22 +1,80 @@
 .space-show
   .space-show__title
-    #{@space.mall_name}詳細ページです
+    %h3 #{@space.mall_name}詳細ページ
+
+    .space-show__title__nice
+      - if tenant_signed_in? && current_tenant.already_niced?(@space)
+        = link_to space_nice_path(@space), method: :delete do
+          %i.fas.fa-heart{:id => "#{@space.id}"}
+      - elsif tenant_signed_in?
+        = link_to space_nices_path(@space) , method: :post do
+          %i.far.fa-heart{:id => "#{@space.id}"}
+      - else
+        %i.fas.fa-heart
+    %p #{@space.nices.count}
+
   .space-show__info
     .space-show__info__image
       = image_tag @space.image
-    .space-show__info__list
-      %p 所在地：　　　　#{@space.location}
+      .space-show__info__list
+        %p 所在地：　　　　#{@space.location}
 
-      %p 施設名称：　　　#{@space.mall_name}
+        %p 施設名称：　　　#{@space.mall_name}
 
-      %p フロア：　　　　#{@space.floor}階
+        %p フロア：　　　　#{@space.floor}階
 
-      %p 区画番号：　　　#{@space.block_number}
+        %p 区画番号：　　　#{@space.block_number}
 
-      %p 面積：　　　　　#{@space.area}（㎡）／#{(@space.area * 0.3025).floor(2)}（坪）
+        %p 面積：　　　　　#{@space.area}（㎡）／#{(@space.area * 0.3025).floor(2)}（坪）
 
-      %p 月額賃料：　　　#{@space.rent.to_s(:delimited)}（円／月）
+        %p 月額賃料：　　　#{@space.rent.to_s(:delimited)}（円／月）
 
-      %p 坪あたりの賃料：＠#{(@space.rent / (@space.area * 0.3025)).floor(2)}（円）
+        %p 坪あたりの賃料：＠#{(@space.rent / (@space.area * 0.3025)).floor(2)}（円）
 
-      %p 誘致希望業種　：#{@space.sector}
+        %p 誘致希望業種　：#{@space.sector}
+
+    .space-show__info__map
+      #map
+      :javascript
+        function drawMap(address) {
+            var geocoder = new google.maps.Geocoder();
+            //住所から座標を取得する
+            geocoder.geocode(
+                    {
+                        'address': address,//検索する住所　〒◯◯◯-◯◯◯◯ 住所　みたいな形式でも検索できる
+                        'region': 'jp'
+                    },
+                    function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            google.maps.event.addDomListener(window, 'load', function () {
+                                var map_tag = document.getElementById('map');
+                                // 取得した座標をセット緯度経度をセット
+                                var map_location = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+                                //マップ表示のオプション
+                                var map_options =
+                                {
+                                    zoom: 13,//縮尺
+                                    center: map_location,//地図の中心座標
+                                    disableDefaultUI: true,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP//地図の種類を指定
+                                };
+
+                                //マップを表示する
+                                var map = new google.maps.Map(map_tag, map_options);
+
+                                //地図上にマーカーを表示させる
+                                var marker = new google.maps.Marker({
+                                    position: map_location,//マーカーを表示させる座標
+                                    map: map//マーカーを表示させる地図
+                                });
+                            });
+                        }
+                    }
+            );
+        }
+        drawMap('#{@space.mall_name}');
+      :css
+        html { height: 100% }
+        body { height: 100% }
+        #map { height: 450px; width: 450px}
+

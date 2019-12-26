@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   root "top#index"
   devise_for :tenants
   devise_for :developers
-  resources :spaces
-  resources :brands
+  resources :spaces do
+    resources :nices, only: [:create, :destroy]
+  end
+  resources :brands do
+    resources :goods, only: [:create, :destroy]
+  end
   resources :developers, only: :show
   resources :tenants, only: :show
 
