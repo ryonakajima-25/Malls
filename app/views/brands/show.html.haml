@@ -1,14 +1,18 @@
 .brand-show
   .brand-show__title
-    #{@brand.name}詳細ページです
+    %h3 #{@brand.name}詳細ページ
 
-  .brand-show__nice
-    %h3 グッド件数：#{@brand.goods.count}
-    - if developer_signed_in? && current_developer.already_gooded?(@brand)
-      = button_to 'グッドを取り消す', brand_good_path(@brand), method: :delete
-    - elsif developer_signed_in?
-      = button_to 'グッド！！', brand_goods_path(@brand)
-    - else
+    .brand-show__title__nice
+      - if developer_signed_in? && current_developer.already_gooded?(@brand)
+        = link_to brand_good_path(@brand), method: :delete do
+          %i.fas.fa-heart{:id => "#{@brand.id}"}
+      - elsif developer_signed_in?
+        = link_to brand_goods_path(@brand) , method: :post do
+          %i.far.fa-heart{:id => "#{@brand.id}"}
+      - else
+        %i.fas.fa-heart
+
+    %p #{@brand.goods.count}
 
   .brand-show__info
     .brand-show__info__image
@@ -22,7 +26,7 @@
 
       %p 対象年齢：　　　　#{@brand.target_age}
 
-      %p 適正面積（坪）：　#{@brand.area_min}〜#{@brand.area_max}
+      %p 適正面積：　　　　#{@brand.area_min}坪　〜　#{@brand.area_max}坪
       - if @brand.sales_record.present?
         %p 既存店売上：　　　#{@brand.sales_record}
 
