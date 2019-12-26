@@ -1,14 +1,17 @@
 .space-show
   .space-show__title
-    #{@space.mall_name}詳細ページです
+    %h3 #{@space.mall_name}詳細ページ
 
-  .space-show__nice
-    %h3 ナイス件数：#{@space.nices.count}
-    - if tenant_signed_in? && current_tenant.already_niced?(@space)
-      = button_to 'ナイスを取り消す', space_nice_path(@space), method: :delete
-    - elsif tenant_signed_in?
-      = button_to 'ナイス！！', space_nices_path(@space)
-    - else
+    .space-show__title__nice
+      - if tenant_signed_in? && current_tenant.already_niced?(@space)
+        = link_to space_nice_path(@space), method: :delete do
+          %i.fas.fa-heart{:id => "#{@space.id}"}
+      - elsif tenant_signed_in?
+        = link_to space_nices_path(@space) , method: :post do
+          %i.far.fa-heart{:id => "#{@space.id}"}
+      - else
+        %i.fas.fa-heart
+    %p #{@space.nices.count}
 
   .space-show__info
     .space-show__info__image

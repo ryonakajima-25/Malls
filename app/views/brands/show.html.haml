@@ -2,7 +2,7 @@
   .brand-show__title
     %h3 #{@brand.name}詳細ページ
 
-    .brand-show__title__nice
+    .brand-show__title__good
       - if developer_signed_in? && current_developer.already_gooded?(@brand)
         = link_to brand_good_path(@brand), method: :delete do
           %i.fas.fa-heart{:id => "#{@brand.id}"}
@@ -11,7 +11,6 @@
           %i.far.fa-heart{:id => "#{@brand.id}"}
       - else
         %i.fas.fa-heart
-
     %p #{@brand.goods.count}
 
   .brand-show__info
