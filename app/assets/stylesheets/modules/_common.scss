@@ -17,11 +17,11 @@ header {
   height: 60px;
   display: flex;
   justify-content: space-between;
+  z-index: 3;
   .nav {
     padding: 0 15px;
     a {
       color: white;
-      text-decoration: none;
       padding: 5px;
       &.logo {
         font-size: 55px;
@@ -38,11 +38,10 @@ header {
 // --------------コンテンツ------------------
 
 #contents {
-  padding-top: 60px;
+  padding: 60px 10px 10px;
   margin: 0 10px;
   background-color: $color_3;
 }
-
 
 // ---------------フッター-------------------
 

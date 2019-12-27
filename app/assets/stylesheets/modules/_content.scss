@@ -1,0 +1,26 @@
+.section {
+  margin: 10px;
+  padding: 5px;
+  border: solid 1px black;
+  background-color: white;
+  line-height: 1.5em;
+  .space {
+    border: solid 1px black;
+    background-color: $color_2;
+    margin: 5px 0;
+    display: flex;
+    padding: 10px;
+    position: relative;
+    &__item {
+      width: 400px;
+    }
+    &__image {
+
+    }
+    .btn {
+      position: absolute;
+      right: 15px;
+      top: 5px;
+    }
+  }
+}

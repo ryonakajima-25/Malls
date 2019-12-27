@@ -1,5 +1,5 @@
-.space-list__box
-  %ul.space-list__box__left
+.space
+  %ul.space__item
     %li 所在地：#{space.location}
     %li 施設名称：「#{space.mall_name}」
     %li フロア：#{space.floor}階
@@ -8,17 +8,17 @@
     = link_to developer_path(space.developer_id) do
       = space.developer.name
 
-  .space-list__box__right
+  .space__image
     - if space.image.present?
       = image_tag space.image.url
-      
-    - if developer_signed_in?
-      .action-btn
-        = link_to '詳細', space_path(space.id)
-        - if current_developer.id == space.developer_id
-          = link_to '編集', edit_space_path(space.id)
-          = link_to '削除', space_path(space.id), method: :delete
-        - else
-    - elsif tenant_signed_in?
-      .action-btn
-        = link_to '詳細', space_path(space.id)
+
+  - if developer_signed_in?
+    .btn
+      = link_to '詳細', space_path(space.id)
+      - if current_developer.id == space.developer_id
+        = link_to '編集', edit_space_path(space.id)
+        = link_to '削除', space_path(space.id), method: :delete
+      - else
+  - elsif tenant_signed_in?
+    .btn
+      = link_to '詳細', space_path(space.id)
