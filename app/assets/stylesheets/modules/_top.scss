@@ -17,9 +17,7 @@
       width: 100%;
       height: 100%;
       line-height: 400px;
-    }
-    a:hover {
-      opacity: 0.5;
+      padding: 0;
     }
   }
   &__btn:first-of-type{ background-color: $color_dv1; }

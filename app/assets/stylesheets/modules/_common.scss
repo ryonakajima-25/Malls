@@ -1,12 +1,4 @@
-$color_1:rgb(70, 70, 70);
-$color_2:rgb(104, 104, 104);
-$color_3:rgb(211, 211, 211);
 
-$color_dv1:rgb(0, 49, 139);
-$color_dv2:rgb(173, 216, 230);
-
-$color_te1:rgb(139, 0, 0);
-$color_te2:rgb(230, 173, 173);
 
 // -----------------ヘッダー-------------------
 
@@ -22,13 +14,11 @@ header {
     padding: 0 15px;
     a {
       color: white;
-      padding: 5px;
       &.logo {
         font-size: 55px;
         font-weight: bold;
       }
     }
-    a:hover {background-color: $color_2;}
   }
   .nav:last-child { line-height: 85px;}
   #dv { background-color: $color_dv1;}
