@@ -1,35 +1,23 @@
-
+.nav
+  = link_to 'Malls', root_path, class: 'logo'
+  = link_to '施設一覧', spaces_path
+  = link_to 'ブランド一覧', brands_path
 - if developer_signed_in?
-  .header-dv
-    %a.logo{ :href => '/' } Malls
-    = link_to '施設一覧', spaces_path
-    = link_to 'ブランド一覧', brands_path
-    .link-list
-      = link_to developer_path(current_developer) do
-        = "DVログイン：#{current_developer.name}" 
-      = link_to 'DV募集区画登録', new_space_path
-      = link_to 'DVログアウト',  destroy_developer_session_path , :method => :delete
+  #dv.nav
+    = link_to "DVログイン：#{current_developer.name}", developer_path(current_developer)
+    = link_to 'DV募集区画登録', new_space_path
+    = link_to 'DVログアウト',  destroy_developer_session_path , :method => :delete
 
 - elsif tenant_signed_in? 
-  .header-te
-    %a.logo{ :href => '/' } Malls
-    = link_to '施設一覧', spaces_path
-    = link_to 'ブランド一覧', brands_path
-    .link-list
-      = link_to tenant_path(current_tenant) do
-        = "TEログイン：#{current_tenant.name}" 
-      = link_to 'TE業態登録', new_brand_path
-      = link_to 'TEログアウト', destroy_tenant_session_path, :method => :delete
+  #te.nav
+    = link_to "TEログイン：#{current_tenant.name}", tenant_path(current_tenant) 
+    = link_to 'TE業態登録', new_brand_path
+    = link_to 'TEログアウト', destroy_tenant_session_path, :method => :delete
 
 - else
-  .header
-    %a.logo{ :href => '/' } Malls
-    = link_to '施設一覧', spaces_path
-    = link_to 'ブランド一覧', brands_path
-    .link-list
-      = link_to 'DV新規登録', new_developer_registration_path
-      = link_to 'DVサインイン', new_developer_session_path
-      = link_to 'TE新規登録', new_tenant_registration_path
-      = link_to 'TEサインイン', new_tenant_session_path
-  
+  .nav
+    = link_to 'DV新規登録', new_developer_registration_path
+    = link_to 'DVサインイン', new_developer_session_path
+    = link_to 'TE新規登録', new_tenant_registration_path
+    = link_to 'TEサインイン', new_tenant_session_path
   
