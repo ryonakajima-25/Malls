@@ -1,0 +1,54 @@
+$color_1:rgb(70, 70, 70);
+$color_2:rgb(211, 211, 211);
+
+$color_dv1:rgb(0, 49, 139);
+$color_dv2:rgb(173, 216, 230);
+
+$color_te1:rgb(139, 0, 0);
+$color_te2:rgb(230, 173, 173);
+
+// -----------------ヘッダー-------------------
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: $color_1;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  .nav {
+    padding: 0 15px;
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 5px;
+      &.logo {
+        font-size: 55px;
+        font-weight: bold;
+      }
+    }
+    a:hover {background-color: $color_1;}
+  }
+  .nav:last-child { line-height: 85px;}
+  #dv { background-color: $color_dv1;}
+  #te { background-color: $color_te1;}
+}
+
+// --------------コンテンツ------------------
+
+.contents {
+  padding-top: 60px;
+}
+
+
+// ---------------フッター-------------------
+
+footer {
+  width: 100%;
+  height: 30px;
+  background-color: $color_1;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  font-size: 8px;
+}
