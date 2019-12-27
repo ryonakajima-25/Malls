@@ -24,3 +24,30 @@
 }
 
 // ----------------- show ---------------------
+
+.title {
+  display: flex;
+  margin: 30px;
+  h1 {
+    padding-right: 24px;
+  }
+  &__icon, p {
+    font-size: 32px;
+    line-height: 32px;
+    a {
+      color: $color_1;
+    }
+    a:hover {
+      background-color: unset;
+    }
+  }
+}
+.show {
+  margin: 30px;
+  display: flex;
+  &__left {
+    width: 500px;
+  }
+  &__right {
+  } 
+}
