@@ -10,10 +10,10 @@
 
 
   %body
-    = render 'layouts/header'
-    .contents
+    %header
+      = render 'layouts/header'
+    #contents
       = yield
-
     %footer
       %p Copyright Ryo Nakajima All Rights Reserved.
 
