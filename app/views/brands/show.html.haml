@@ -1,22 +1,20 @@
-.brand-show
-  .brand-show__title
-    %h3 #{@brand.name}詳細ページ
-
-    .brand-show__title__good
-      - if developer_signed_in? && current_developer.already_gooded?(@brand)
-        = link_to brand_good_path(@brand), method: :delete do
-          %i.fas.fa-heart{:id => "#{@brand.id}"}
-      - elsif developer_signed_in?
-        = link_to brand_goods_path(@brand) , method: :post do
-          %i.far.fa-heart{:id => "#{@brand.id}"}
-      - else
-        %i.fas.fa-heart
-    %p #{@brand.goods.count}
-
-  .brand-show__info
-    .brand-show__info__image
+.title
+  %h1 「#{@brand.name}」詳細ページ
+  .title__icon
+    - if developer_signed_in? && current_developer.already_gooded?(@brand)
+      = link_to brand_good_path(@brand), method: :delete do
+        %i.fas.fa-heart{:id => "#{@brand.id}"}
+    - elsif developer_signed_in?
+      = link_to brand_goods_path(@brand) , method: :post do
+        %i.far.fa-heart{:id => "#{@brand.id}"}
+    - else
+      %i.fas.fa-heart
+  %p #{@brand.goods.count}
+.show
+  .show__left
+    .show__info__image
       = image_tag @brand.image
-    .brand-show__info__list
+    .show__info__list
       %p ブランド名：　　　#{@brand.name}
 
       %p 業種：　　　　　　#{@brand.category_large}／#{@brand.category_small}
