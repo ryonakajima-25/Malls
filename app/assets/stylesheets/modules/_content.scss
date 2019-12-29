@@ -27,7 +27,7 @@
 
 .title {
   display: flex;
-  margin: 30px;
+  margin: 15px;
   h1 {
     padding-right: 24px;
   }
@@ -38,15 +38,51 @@
     a {
       color: $color_1;
     }
-    a:hover {
-      background-color: unset;
-    }
   }
 }
 .show {
-  margin: 30px;
+  margin: 15px;
   display: flex;
   &__left {
     width: 500px;
+    margin: 15px;
+    img {
+      zoom: 1.5;
+    }
+    &__info {
+      padding-top: 15px;
+      table {
+        border-collapse: collapse;
+      }
+      th, td {
+        font-size: 16px;
+        padding: 15px 30px;
+        border: solid 1px black;
+      }
+    }
+  }
+}
+
+// ----------------- new, edit -------------------
+
+.form {
+  padding: 15px;
+  &__table {
+    padding: 15px;
+    font-size: 16px;
+    table {
+      border-collapse: collapse;
+      td {
+        border: solid 1px black;
+      }
+      .text {
+        padding: 15px;
+      }
+    }
+    // a {
+    //   margin: 10px;
+    //   padding: 10px;
+    //   font-size: 18px;
+    // }
   }
 }
