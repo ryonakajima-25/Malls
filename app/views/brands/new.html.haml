@@ -1,39 +1,61 @@
 .form
-  %a.form-title ブランドを登録
-  %ul.form-square
+  .form__title
+    %h2 ブランドを登録
+  .form__table
     = form_for @brand  do |f|
-
-      %p
-        ブランド名：　　　　　
-        = f.text_field :name, class: 'name'
-      %p
-        業種選択：　　　　　　
-        = f.text_field :category_large, class: 'category_large'
-      %p
-        業種入力：　　　　　　
-        = f.text_field :category_small, class: 'category_small'
-      %p
-        対象性別：　　　　　　
-        = f.text_field :target_sex, class: 'target_sex'
-      %p
-        対象年齢：　　　　　　
-        = f.text_field :target_age, class: 'target_max'
-      %p
-        最小適正面積（／坪）：
-        = f.text_field :area_min, class: 'area_min'
-      %p
-        最大適正面積（／坪）：
-        = f.text_field :area_max, class: 'area_max'
-      %p
-        既存店売上：　　　　　
-        = f.text_area :sales_record, class: 'sales_record'
-      %p
-        画像、写真：　　　　　
-        %label
-          = icon('fas', 'image')
-          = f.file_field :image, class: 'hidden'
-
-      
+      %table
+        %tr
+          %td.text ブランド名
+          %td= f.text_field :name
+        %tr
+          %td.text 業種選択
+          %td
+            = f.radio_button :category_large, :'物販'
+            = f.label :category_large, "物販店舗", {value: :'物販'}
+            = f.radio_button :category_large, :'飲食'
+            = f.label :category_large, "飲食店舗", {value: :'飲食'}
+            = f.radio_button :category_large, :'サービス'
+            = f.label :category_large, "サービス店舗", {value: :'サービス'}
+        %tr
+          %td.text 詳細業種
+          %td= f.text_field :category_small
+        %tr
+          %td.text 対象性別
+          %td
+            = f.radio_button :target_sex, :'男性'
+            = f.label :target_sex, "男性", {value: :'男性'}
+            = f.radio_button :target_sex, :'女性'
+            = f.label :target_sex, "女性", {value: :'女性'}
+        %tr
+          %td.text 対象年齢
+          %td
+            = f.check_box :target_age
+            = f.label :target_age, "10代", {value: :'10代'}
+            = f.check_box :target_age
+            = f.label :target_age, "20代", {value: :'20代'}
+            = f.check_box :target_age
+            = f.label :target_age, "30代", {value: :'30代'}
+            = f.check_box :target_age
+            = f.label :target_age, "40代", {value: :'40代'}
+            = f.check_box :target_age
+            = f.label :target_age, "50代", {value: :'50代'}
+            = f.check_box :target_age
+            = f.label :target_age, "不問", {value: :'不問'}
+        %tr
+          %td.text 最小面積（坪）
+          %td= f.number_field :area_min
+        %tr
+          %td.text 最大面積（坪）
+          %td= f.number_field :area_max
+        %tr
+          %td.text 既存店売上
+          %td= f.text_area :sales_record, placeholder: :"◯◯店：月商◯◯百万円など"
+        %tr
+          %td.text 画像、写真
+          %td
+            %label
+              = icon('fas', 'image')
+              = f.file_field :image, class: 'hidden'
       %a
         = f.submit '送信', class: 'send-btn'
 

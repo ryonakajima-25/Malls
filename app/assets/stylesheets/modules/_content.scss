@@ -1,0 +1,98 @@
+// ---------------- index -------------------
+.section {
+  margin: 10px;
+  padding: 5px;
+  border: solid 1px black;
+  background-color: white;
+  line-height: 1.5em;
+  .space, .brand {
+    margin-bottom: 5px;
+    display: flex;
+    padding: 10px;
+    position: relative;
+    &__item {
+      width: 400px;
+    }
+  }
+  .btn {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+  }
+  #space { background-color: $color_dv2; }
+  #brand { background-color: $color_te2; }
+}
+
+// ----------------- show ---------------------
+
+.title {
+  display: flex;
+  margin: 15px;
+  h1 {
+    padding-right: 24px;
+  }
+  &__icon, p {
+    font-size: 32px;
+    line-height: 32px;
+    padding-left: 10px;
+    a {
+      color: $color_1;
+    }
+  }
+}
+.show {
+  margin: 15px;
+  display: flex;
+  &__left {
+    width: 500px;
+    margin: 15px;
+    img {
+      zoom: 1.5;
+    }
+    &__info {
+      padding-top: 15px;
+      table {
+        border-collapse: collapse;
+      }
+      th, td {
+        font-size: 16px;
+        padding: 15px 30px;
+        border: solid 1px black;
+      }
+    }
+  }
+}
+
+// ----------------- new, edit -------------------
+
+.form {
+  padding: 15px;
+  &__table {
+    padding: 15px;
+    table {
+      border-collapse: collapse;
+      font-size: 18px;
+      td {
+        border: solid 1px black;
+        padding: 3px;
+        #brand_name, 
+        #brand_category_small, {
+          height: 24px;
+          width: 600px;
+          font-size: 16px;
+        }
+        #brand_area_min,
+        #brand_area_max {
+          height: 24px;
+          width: 80px;
+          font-size: 16px;
+        }
+        textarea {
+          height: 72px;
+          width: 600px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

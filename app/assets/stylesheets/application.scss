@@ -2,6 +2,6 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-@import "./header-contents-footer";
-@import "./space";
-@import "./developer";
+@import "modules/common";
+@import "modules/top";
+@import "modules/content";

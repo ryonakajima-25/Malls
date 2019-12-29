@@ -1,0 +1,46 @@
+
+
+// -----------------ヘッダー-------------------
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: $color_1;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+  .nav {
+    padding: 0 15px;
+    a {
+      color: white;
+      &.logo {
+        font-size: 55px;
+        font-weight: bold;
+      }
+    }
+  }
+  .nav:last-child { line-height: 85px;}
+  #dv { background-color: $color_dv1;}
+  #te { background-color: $color_te1;}
+}
+
+// --------------コンテンツ------------------
+
+#contents {
+  padding: 60px 10px 10px;
+  margin: 0 10px;
+  background-color: $color_3;
+}
+
+// ---------------フッター-------------------
+
+footer {
+  width: 100%;
+  height: 20px;
+  background-color: $color_1;
+  text-align: center;
+  line-height: 20px;
+  color: white;
+  font-size: 8px;
+}

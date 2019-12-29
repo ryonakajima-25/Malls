@@ -1,6 +1,5 @@
-.contents
-  .content
-    #{@name}さんの投稿
-    .space-list
-      - @spaces.each do |space|
-        = render partial: "spaces/space", locals: { space: space }
+.section
+  .title
+    %h3 #{@name}さんの投稿
+  - @spaces.each do |space|
+    = render partial: "spaces/space", locals: { space: space }

@@ -1,34 +1,35 @@
 .form
-  %a.form-title リーシング区画を登録
-  %ul.form-square
+  .form__title
+    %h2 リーシング区画を登録
+  .form__table
     = form_for @space  do |f|
-
-      %p
-        所在地：　　　　　　
-        = f.text_field :location, class: 'location'
-      %p
-        施設名称：　　　　　
-        = f.text_field :mall_name, class: 'mall_name'
-      %p
-        階数：　　　　　　　
-        = f.text_field :floor, class: 'floor'
-      %p
-        区画番号：　　　　　
-        = f.text_field :block_number, class: 'block_number'
-      %p
-        面積（㎡）：　　　　
-        = f.text_field :area, class: 'area'
-      %p
-        月額賃料（／坪）：　
-        = f.text_field :rent, class: 'rent'
-      %p
-        募集業種：　　　　　
-        = f.text_field :sector, class: 'sector'
-      %p
-        画像、写真：　　　　
-        %label
-          = icon('fas', 'image')
-          = f.file_field :image, class: 'hidden'
+      %table
+        %tr
+          %td.text 所在地
+          %td= f.text_field :location
+        %tr
+          %td.text 施設名称
+          %td= f.text_field :mall_name
+        %tr
+          %td.text 階数
+          %td= f.text_field :floor
+        %tr
+          %td.text 区画番号
+          %td= f.text_field :block_number
+        %tr
+          %td.text 面積（㎡）
+          %td= f.text_field :area
+        %tr
+          %td.text 賃料（坪あたり月額）
+          %td= f.text_field :rent
+        %tr
+          %td.text 募集業種
+          %td= f.text_field :sector
+        %tr
+          %td.text 画像、写真
+          %td
+            %label
+              = icon('fas', 'image')
+              = f.file_field :image, class: 'hidden'
       %a
         = f.submit '送信', class: 'send-btn'
-
