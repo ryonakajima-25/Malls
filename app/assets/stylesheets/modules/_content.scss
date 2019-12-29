@@ -34,6 +34,7 @@
   &__icon, p {
     font-size: 32px;
     line-height: 32px;
+    padding-left: 10px;
     a {
       color: $color_1;
     }
@@ -48,6 +49,4 @@
   &__left {
     width: 500px;
   }
-  &__right {
-  } 
 }

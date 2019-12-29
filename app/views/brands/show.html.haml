@@ -15,15 +15,24 @@
     .show__info__image
       = image_tag @brand.image
     .show__info__list
-      %p ブランド名：　　　#{@brand.name}
-
-      %p 業種：　　　　　　#{@brand.category_large}／#{@brand.category_small}
-
-      %p 対象性別：　　　　#{@brand.target_sex}
-
-      %p 対象年齢：　　　　#{@brand.target_age}
-
-      %p 適正面積：　　　　#{@brand.area_min}坪　〜　#{@brand.area_max}坪
-      - if @brand.sales_record.present?
-        %p 既存店売上：　　　#{@brand.sales_record}
+      %table
+        %tr
+          %td ブランド名
+          %td #{@brand.name}
+        %tr
+          %td 業種
+          %td #{@brand.category_large}／#{@brand.category_small}
+        %tr
+          %td 対象性別
+          %td #{@brand.target_sex}
+        %tr
+          %td 対象年齢
+          %td #{@brand.target_age}
+        %tr
+          %td 適正面積
+          %td #{@brand.area_min}坪　〜　#{@brand.area_max}坪
+        - if @brand.sales_record.present?
+          %tr
+            %td 既存店売上
+            %td {@brand.sales_record}
 
