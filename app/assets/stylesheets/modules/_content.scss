@@ -69,14 +69,29 @@
   padding: 15px;
   &__table {
     padding: 15px;
-    font-size: 16px;
     table {
       border-collapse: collapse;
+      font-size: 18px;
       td {
         border: solid 1px black;
-      }
-      .text {
-        padding: 15px;
+        padding: 3px;
+        #brand_name, 
+        #brand_category_small, {
+          height: 24px;
+          width: 600px;
+          font-size: 16px;
+        }
+        #brand_area_min,
+        #brand_area_max {
+          height: 24px;
+          width: 80px;
+          font-size: 16px;
+        }
+        textarea {
+          height: 72px;
+          width: 600px;
+          font-size: 16px;
+        }
       }
     }
   }
