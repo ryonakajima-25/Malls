@@ -1,6 +1,6 @@
-.contents
-  .content
-    #{@name}さんの投稿
-    .brand-list
-      - @brands.each do |brand|
-        = render partial: "brands/brand", locals: { brand: brand }
+.section
+  .title
+    %h3 #{@name}さんの投稿
+  - @brands.each do |brand|
+    = render partial: "brands/brand", locals: { brand: brand }
+
