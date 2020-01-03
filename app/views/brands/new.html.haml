@@ -2,7 +2,7 @@
   .form__title
     %h2 ブランドを登録
   .form__table
-    = form_for @brand  do |f|
+    = form_for @brand do |f|
       %table
         %tr
           %td.text ブランド名
@@ -26,21 +26,23 @@
             = f.label :target_sex, "男性", {value: :'男性'}
             = f.radio_button :target_sex, :'女性'
             = f.label :target_sex, "女性", {value: :'女性'}
+            = f.radio_button :target_sex, :'不問'
+            = f.label :target_sex, "不問", {value: :'不問'}
         %tr
           %td.text 対象年齢
           %td
-            = f.check_box :target_age
+            = f.check_box :target_age, {checked_value: :"10代", unchecked_value: :nil}
             = f.label :target_age, "10代", {value: :'10代'}
-            = f.check_box :target_age
+            = f.check_box :target_age, {checked_value: :"20代", unchecked_value: :nil}
             = f.label :target_age, "20代", {value: :'20代'}
-            = f.check_box :target_age
-            = f.label :target_age, "30代", {value: :'30代'}
-            = f.check_box :target_age
-            = f.label :target_age, "40代", {value: :'40代'}
-            = f.check_box :target_age
-            = f.label :target_age, "50代", {value: :'50代'}
-            = f.check_box :target_age
-            = f.label :target_age, "不問", {value: :'不問'}
+            -# = f.check_box :target_age, {checked_value: :"30代", unchecked_value: :nil}
+            -# = f.label :target_age, "30代", {value: :'30代'}
+            -# = f.check_box :target_age, {checked_value: :"40代", unchecked_value: :nil}
+            -# = f.label :target_age, "40代", {value: :'40代'}
+            -# = f.check_box :target_age, {checked_value: :"50代", unchecked_value: :nil}
+            -# = f.label :target_age, "50代", {value: :'50代'}
+            -# = f.check_box :target_age, {checked_value: :"不問", unchecked_value: :nil}
+            -# = f.label :target_age, "不問", {value: :'不問'}
         %tr
           %td.text 最小面積（坪）
           %td= f.number_field :area_min
