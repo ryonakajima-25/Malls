@@ -1,0 +1,9 @@
+- if developer_signed_in? && current_developer.already_gooded?(@brand)
+  = link_to brand_good_path(@brand), method: :delete, remote: true do
+    %i.fas.fa-heart{id: "good-#{@brand.id}"}
+- elsif developer_signed_in?
+  = link_to brand_goods_path(@brand) , method: :post, remote: true do
+    %i.far.fa-heart{id: "good-#{@brand.id}"}
+- else
+  %i.fas.fa-heart
+%p #{@brand.goods.count}
