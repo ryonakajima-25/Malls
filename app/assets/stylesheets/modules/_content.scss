@@ -54,9 +54,9 @@
       table {
         border-collapse: collapse;
       }
-      th, td {
+      td {
         font-size: 16px;
-        padding: 15px 30px;
+        padding: 10px;
         border: solid 1px black;
       }
     }
@@ -76,15 +76,22 @@
         border: solid 1px black;
         padding: 5px;
         #brand_name, 
-        #brand_category_small, {
+        #brand_category_small,
+        #space_location,
+        #space_mall_name,
+        #space_sector {
           height: 24px;
           width: 600px;
           font-size: 16px;
         }
         #brand_area_min,
-        #brand_area_max {
+        #brand_area_max,
+        #space_floor,
+        #space_block_number,
+        #space_area,
+        #space_rent {
           height: 24px;
-          width: 80px;
+          width: 120px;
           font-size: 16px;
         }
         textarea {

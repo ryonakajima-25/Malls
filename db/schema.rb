@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191224102748) do
+ActiveRecord::Schema.define(version: 20200103071235) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                         null: false
@@ -62,16 +62,16 @@ ActiveRecord::Schema.define(version: 20191224102748) do
   end
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "location",     null: false
-    t.string   "mall_name",    null: false
-    t.integer  "floor",        null: false
-    t.integer  "block_number", null: false
-    t.integer  "area",         null: false
+    t.string   "location",                             null: false
+    t.string   "mall_name",                            null: false
+    t.integer  "floor",                                null: false
+    t.integer  "block_number",                         null: false
+    t.decimal  "area",         precision: 6, scale: 2, null: false
     t.integer  "rent"
     t.string   "sector"
     t.string   "image"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "developer_id"
     t.index ["developer_id"], name: "index_spaces_on_developer_id", using: :btree
   end

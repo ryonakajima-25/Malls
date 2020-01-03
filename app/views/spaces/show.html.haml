@@ -33,7 +33,7 @@
           %td #{(@space.area * 0.3025).floor(2)}坪
         %tr
           %td 月額賃料
-          %td #{(@space.rent * (@space.area * 0.3025).floor(2)).floor(0).to_s(:delimited)}円
+          %td #{(@space.rent * (@space.area * 0.3025).floor(2)).floor.to_s(:delimited)}円
         %tr
           %td 坪あたりの賃料
           %td #{@space.rent.to_s(:delimited)}円

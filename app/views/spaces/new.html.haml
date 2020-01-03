@@ -12,16 +12,16 @@
           %td= f.text_field :mall_name
         %tr
           %td.text 階数
-          %td= f.text_field :floor
+          %td= f.number_field :floor
         %tr
           %td.text 区画番号
-          %td= f.text_field :block_number
+          %td= f.number_field :block_number
         %tr
           %td.text 面積（㎡）
-          %td= f.text_field :area
+          %td= f.number_field :area, step: "0.01"
         %tr
           %td.text 賃料（坪あたり月額）
-          %td= f.text_field :rent
+          %td= f.number_field :rent
         %tr
           %td.text 募集業種
           %td= f.text_field :sector
