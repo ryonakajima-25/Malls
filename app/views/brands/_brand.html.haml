@@ -13,6 +13,10 @@
     - if brand.image.present?
       = image_tag brand.image.url
 
+  .icon
+    %i.fas.fa-heart 
+    %p= brand.goods.count
+
   - if tenant_signed_in?
     %ul.btn
       %li= link_to '詳細', brand_path(brand.id)

@@ -14,9 +14,19 @@
       width: 400px;
     }
   }
-  .btn {
+  .icon {
     position: absolute;
     right: 15px;
+    bottom: 10px;
+    display: flex;
+    line-height: 15px;
+    i {
+      padding-right: 5px;
+    }
+  }
+  .btn {
+    position: absolute;
+    right: 10px;
     top: 5px;
   }
   #space { background-color: $color_dv2; }
@@ -35,19 +45,16 @@
     font-size: 32px;
     line-height: 32px;
     padding-left: 10px;
-    a {
-      color: $color_1;
-    }
   }
 }
 .show {
   margin: 15px;
   display: flex;
   &__left {
-    width: 500px;
+    width: 700px;
     margin: 15px;
     img {
-      zoom: 1.5;
+      zoom: 1.2;
     }
     &__info {
       padding-top: 15px;

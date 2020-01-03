@@ -11,6 +11,10 @@
   .space__image
     - if space.image.present?
       = image_tag space.image.url
+  
+  .icon
+    %i.fas.fa-heart 
+    %p= space.nices.count
 
   - if developer_signed_in?
     %ul.btn
