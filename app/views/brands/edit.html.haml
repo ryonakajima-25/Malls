@@ -1,38 +1,66 @@
 .form
-  %a.form-title ブランドを編集
-  %ul.form-square
-    = form_for @brand  do |f|
+  .form__title
+    %h2 ブランドを編集
+  .form__table
+    = form_for @brand do |f|
+      %table
+        %tr
+          %td.text ブランド名
+          %td= f.text_field :name
+        %tr
+          %td.text 業種選択
+          %td
+            = f.radio_button :category_large, :'物販'
+            = f.label :category_large, "物販店舗", {value: :'物販'}
+            = f.radio_button :category_large, :'飲食'
+            = f.label :category_large, "飲食店舗", {value: :'飲食'}
+            = f.radio_button :category_large, :'サービス'
+            = f.label :category_large, "サービス店舗", {value: :'サービス'}
+        %tr
+          %td.text 詳細業種
+          %td= f.text_field :category_small
+        %tr
+          %td.text 対象性別
+          %td
+            = f.radio_button :target_sex, :'男性'
+            = f.label :target_sex, "男性", {value: :'男性'}
+            = f.radio_button :target_sex, :'女性'
+            = f.label :target_sex, "女性", {value: :'女性'}
+            = f.radio_button :target_sex, :'不問'
+            = f.label :target_sex, "不問", {value: :'不問'}
+        %tr
+          %td.text 対象年齢
+          %td
+            = f.check_box :target_age,{ multiple: true}, '〜10代', nil
+            = f.label :target_age, {value: :'〜10代'}
+            = f.check_box :target_age,{ multiple: true }, '20代', nil
+            = f.label :target_age, {value: :'20代'}
+            = f.check_box :target_age,{ multiple: true }, '30代', nil
+            = f.label :target_age, {value: :'30代'}
+            = f.check_box :target_age,{ multiple: true }, '40代', nil
+            = f.label :target_age, {value: :'40代'}
+            = f.check_box :target_age,{ multiple: true }, '50代', nil
+            = f.label :target_age, {value: :'50代'}
+            = f.check_box :target_age,{ multiple: true }, '60代', nil
+            = f.label :target_age, {value: :'60代〜'}
+            = f.check_box :target_age,{ multiple: true, :checked => "checked"}, '不問', nil
+            = f.label :target_age, {value: :'不問'}
 
-      %p
-        ブランド名：　　　
-        = f.text_field :name, class: 'name', placeholder: 'name'
-      %p
-        業種選択：　　　　
-        = f.text_field :category_large, class: 'category_large', placeholder: 'category_large'
-      %p
-        業種入力：　　　　
-        = f.text_field :category_small, class: 'category_small', placeholder: 'category_small'
-      %p
-        対象性別：　　　　
-        = f.text_field :target_sex, class: 'target_sex', placeholder: 'target_sex'
-      %p
-        対象年齢：　　　　
-        = f.text_field :target_age, class: 'target_max', placeholder: 'target_max'
-      %p
-        適正面積（最小）：
-        = f.text_field :area_min, class: 'area_min', placeholder: 'area_min'
-      %p
-        対象年齢（最大）：
-        = f.text_field :area_max, class: 'area_max', placeholder: 'area_max'
-      %p
-        既存店売上：　　　
-        = f.text_area :sales_record, class: 'sales_record', placeholder: 'sales_record'
-      %p
-        画像、写真：　
-        %label
-          = icon('fas', 'image')
-          = f.file_field :image, class: 'hidden', placeholder: 'image'
-
-      
+        %tr
+          %td.text 最小面積（坪）
+          %td= f.number_field :area_min
+        %tr
+          %td.text 最大面積（坪）
+          %td= f.number_field :area_max
+        %tr
+          %td.text 既存店売上
+          %td= f.text_area :sales_record, placeholder: :"◯◯店：月商◯◯百万円など"
+        %tr
+          %td.text 画像、写真
+          %td
+            %label
+              = icon('fas', 'image')
+              = f.file_field :image, class: 'hidden'
       %a
         = f.submit '送信', class: 'send-btn'
+
