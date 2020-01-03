@@ -36,7 +36,7 @@ class BrandsController < ApplicationController
 
   private
   def brand_params
-    params.require(:brand).permit(:name, :category_large, :category_small, :target_sex, :target_age, :area_max, :area_min, :sales_record, :image).merge(tenant_id: current_tenant.id)
+    params.require(:brand).permit(:name, :category_large, :category_small, :target_sex, :area_max, :area_min, :sales_record, :image, target_age: []).merge(tenant_id: current_tenant.id)
   end
 
   def set_brand
