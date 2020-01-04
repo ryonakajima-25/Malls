@@ -1,0 +1,57 @@
+- if developer_signed_in?
+  - if brand.good_developer(current_developer.id)
+    = link_to brand_good_path(brand_id: brand.id ,id: brand.goods[0].id), method: :delete, remote: true do
+      %i.fas.fa-heart
+      %span
+        = brand.goods_count
+  - else
+    = link_to brand_goods_path(brand.id), method: :post, remote: true do
+      %i.far.fa-heart
+      %span
+        = brand.goods_count
+- else
+  %i.fas.fa-heart
+  %span
+    = brand.goods_count
+
+-# -------------------- 参考ページ（キータ：Railsでいいね機能を実装。Ajaxを使い非同期対応。で） -------------------------
+
+-# - if user_signed_in?
+-#   - unless post.like_user(current_user.id).blank?
+-#     = link_to post_like_path(post_id: post.id ,id: post.likes[0].id), method: :delete, remote: true do
+-#       .vertical_like
+-#         %i.material-icons.red-text favorite
+-#         %span.red-text
+-#           = post.likes_count
+-#   - else
+-#     = link_to post_likes_path(post.id), method: :post, remote: true do
+-#       .vertical_like
+-#         %i.material-icons.grey-text.text-darken-2 favorite_border
+-#         %span.grey-text.text-darken-2
+-#           = post.likes_count
+-# - else
+-#   - if post.likes_count > 0
+-#     .vertical_like
+-#       %i.material-icons.red-text favorite
+-#       %span.red-text
+-#         = post.likes_count
+-#   - else
+-#     .vertical_like
+-#       %i.material-icons.grey-text.text-darken-2 favorite_border
+-#       %span.grey-text.text-darken-2
+-#         = post.likes_count
+
+
+
+-# ---------------------------- 元データ ---------------------------------
+
+
+-# - if developer_signed_in? && current_developer.already_gooded?(@brand)
+-#   = link_to brand_good_path(@brand), method: :delete, remote: true do
+-#     %i.fas.fa-heart{id: "good-#{@brand.id}"}
+-# - elsif developer_signed_in?
+-#   = link_to brand_goods_path(@brand) , method: :post, remote: true do
+-#     %i.far.fa-heart{id: "good-#{@brand.id}"}
+-# - else
+-#   %i.fas.fa-heart
+-# %p #{@brand.goods.count}

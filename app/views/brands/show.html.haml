@@ -1,7 +1,9 @@
 .title
   %h1 「#{@brand.name}」詳細ページ
-  %a.title__icon
-    = render partial: "good", locals: { brand: @brand }
+  %div{:id => "goods_buttons_#{@brand.id}"}
+  = render partial: 'goods/good', locals: { brand: @brand, goods: @goods}
+
+
 
 .show
   .show__left

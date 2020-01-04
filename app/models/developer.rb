@@ -4,7 +4,4 @@ class Developer < ApplicationRecord
   has_many :spaces
   has_many :goods, dependent: :destroy
 
-  def already_gooded?(brand)
-    self.goods.exists?(brand_id: brand.id)
-  end
 end
