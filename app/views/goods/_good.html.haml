@@ -1,18 +1,18 @@
 - if developer_signed_in?
-  - if brand.good_developer(current_developer.id)
-    = link_to brand_good_path(brand_id: brand.id ,id: brand.goods[0].id), method: :delete, remote: true do
+  - if @brand.good_developer(current_developer.id)
+    = link_to brand_good_path(brand_id: @brand.id ,id: @brand.goods[0].id), method: :delete, remote: true do
       %i.fas.fa-heart
       %span
-        = brand.goods_count
+        = @brand.goods_count
   - else
-    = link_to brand_goods_path(brand.id), method: :post, remote: true do
+    = link_to brand_goods_path(@brand.id), method: :post, remote: true do
       %i.far.fa-heart
       %span
-        = brand.goods_count
+        = @brand.goods_count
 - else
   %i.fas.fa-heart
   %span
-    = brand.goods_count
+    = @brand.goods_count
 
 -# -------------------- 参考ページ（キータ：Railsでいいね機能を実装。Ajaxを使い非同期対応。で） -------------------------
 

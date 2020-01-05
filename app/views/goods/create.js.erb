@@ -1,1 +1,1 @@
-$("#good-buttons").html("<%= j(render partial: 'good', locals: { brands: @brands, goods: @goods, good: @good}) %>")
+$("#goods_buttons_#{@brand.id}").html("<%= j(render partial: 'good', locals: { brands: @brands, goods: @goods, good: @good}) %>")

@@ -1,7 +1,7 @@
 .title
   %h1 「#{@brand.name}」詳細ページ
   %div{:id => "goods_buttons_#{@brand.id}"}
-  = render partial: 'goods/good', locals: { brand: @brand, goods: @goods}
+    = render partial: 'goods/good', locals: { brand: @brand, goods: @goods}
 
 
 
