@@ -26,8 +26,8 @@
         %tr
           %td 適正面積
           %td #{@brand.area_min}坪　〜　#{@brand.area_max}坪
-        - if @brand.sales_record.present?
-          %tr
-            %td 既存店売上
-            %td {@brand.sales_record}
+        -# - if @brand.sales_record.present?
+        %tr
+          %td 既存店売上
+          %td #{@brand.sales_record}
 
