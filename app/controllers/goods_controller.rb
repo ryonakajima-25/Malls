@@ -11,7 +11,7 @@ class GoodsController < ApplicationController
     good = Good.find_by(developer_id: current_developer.id, brand_id: params[:brand_id])
     good.destroy
     @goods = Good.where(brand_id: @brand.id)
-    @brands = Brand.all
+    @brands = Brand.ApplicationController
   end
 
   private

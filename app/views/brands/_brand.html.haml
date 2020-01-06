@@ -4,7 +4,7 @@
     %li 業種：#{brand.category_large}／#{brand.category_small}
     %li 対象性別：#{brand.target_sex}
     %li 対象年齢：#{brand.target_age}
-    %li 適正面積：#{brand.area_min}〜#{brand.area_max}
+    %li 適正面積：#{brand.area_min}坪〜#{brand.area_max}坪
     投稿者：#{brand.tenant.company}
     = link_to tenant_path(brand.tenant_id) do
       = brand.tenant.name
@@ -12,6 +12,10 @@
   .brand__image
     - if brand.image.present?
       = image_tag brand.image.url
+
+  .icon
+    %i.fas.fa-heart 
+    %p= brand.goods.count
 
 
   - if tenant_signed_in?
