@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200104091814) do
+ActiveRecord::Schema.define(version: 20200106072041) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                         null: false
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20200104091814) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.integer  "developer_id"
+    t.integer  "nices_count"
     t.index ["developer_id"], name: "index_spaces_on_developer_id", using: :btree
   end
 
