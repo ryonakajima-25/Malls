@@ -10,3 +10,4 @@
 .section
   - @brands.each do |brand|
     = render partial: "brand", locals: { brand: brand }
+  = paginate @brands

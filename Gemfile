@@ -59,3 +59,4 @@ gem 'devise'
 gem "font-awesome-sass"
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'kaminari', '~> 0.17.0'

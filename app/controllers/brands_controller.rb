@@ -2,7 +2,7 @@ class BrandsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @brands = Brand.all.order("updated_at DESC")
+    @brands = Brand.order("updated_at DESC").page(params[:page]).per(6)
   end
 
   def new
@@ -31,12 +31,11 @@ class BrandsController < ApplicationController
 
   def show
     set_brand
-    @good = Good.new
   end
 
   private
   def brand_params
-    params.require(:brand).permit(:name, :category_large, :category_small, :target_sex, :target_age, :area_max, :area_min, :sales_record, :image).merge(tenant_id: current_tenant.id)
+    params.require(:brand).permit(:name, :category_large, :category_small, :target_sex, :area_max, :area_min, :sales_record, :image, target_age: []).merge(tenant_id: current_tenant.id)
   end
 
   def set_brand

@@ -1,15 +1,10 @@
 .title
   %h1 「#{@brand.name}」詳細ページ
-  .title__icon
-    - if developer_signed_in? && current_developer.already_gooded?(@brand)
-      = link_to brand_good_path(@brand), method: :delete do
-        %i.fas.fa-heart{:id => "#{@brand.id}"}
-    - elsif developer_signed_in?
-      = link_to brand_goods_path(@brand) , method: :post do
-        %i.far.fa-heart{:id => "#{@brand.id}"}
-    - else
-      %i.fas.fa-heart
-  %p #{@brand.goods.count}
+  %div{:id => "goods_buttons_#{@brand.id}"}
+    = render partial: 'goods/good', locals: { brand: @brand, goods: @goods}
+
+
+
 .show
   .show__left
     .show__left__image
@@ -31,8 +26,8 @@
         %tr
           %td 適正面積
           %td #{@brand.area_min}坪　〜　#{@brand.area_max}坪
-        - if @brand.sales_record.present?
-          %tr
-            %td 既存店売上
-            %td {@brand.sales_record}
+        -# - if @brand.sales_record.present?
+        %tr
+          %td 既存店売上
+          %td #{@brand.sales_record}
 

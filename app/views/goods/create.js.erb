@@ -1,0 +1,7 @@
+$(function(){
+  $("#good-buttons").html("<%= j(render partial: 'good', locals: { brands: @brands, goods: @goods, good: @good}) %>")
+  console.log("create")
+})
+
+
+

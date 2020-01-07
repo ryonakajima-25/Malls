@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191224102748) do
+ActiveRecord::Schema.define(version: 20200106072041) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                         null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20191224102748) do
     t.datetime "updated_at",                   null: false
     t.integer  "tenant_id"
     t.string   "image"
+    t.integer  "goods_count"
   end
 
   create_table "developers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -48,8 +49,6 @@ ActiveRecord::Schema.define(version: 20191224102748) do
     t.integer  "developer_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["brand_id"], name: "index_goods_on_brand_id", using: :btree
-    t.index ["developer_id"], name: "index_goods_on_developer_id", using: :btree
   end
 
   create_table "nices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -62,17 +61,18 @@ ActiveRecord::Schema.define(version: 20191224102748) do
   end
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "location",     null: false
-    t.string   "mall_name",    null: false
-    t.integer  "floor",        null: false
-    t.integer  "block_number", null: false
-    t.integer  "area",         null: false
+    t.string   "location",                             null: false
+    t.string   "mall_name",                            null: false
+    t.integer  "floor",                                null: false
+    t.integer  "block_number",                         null: false
+    t.decimal  "area",         precision: 6, scale: 2, null: false
     t.integer  "rent"
     t.string   "sector"
     t.string   "image"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "developer_id"
+    t.integer  "nices_count"
     t.index ["developer_id"], name: "index_spaces_on_developer_id", using: :btree
   end
 
@@ -92,8 +92,6 @@ ActiveRecord::Schema.define(version: 20191224102748) do
     t.index ["reset_password_token"], name: "index_tenants_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "goods", "brands"
-  add_foreign_key "goods", "developers"
   add_foreign_key "nices", "spaces"
   add_foreign_key "nices", "tenants"
   add_foreign_key "spaces", "developers"

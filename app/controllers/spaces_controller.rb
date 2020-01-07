@@ -2,7 +2,7 @@ class SpacesController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @spaces = Space.all.order("updated_at DESC")
+    @spaces = Space.all.order("nices_count DESC").page(params[:page]).per(6)
   end
 
   def new

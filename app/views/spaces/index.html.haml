@@ -10,3 +10,4 @@
 .section
   - @spaces.each do |space|
     = render partial: "space", locals: { space: space }
+  = paginate @spaces

@@ -1,0 +1,29 @@
+.account-page {
+  line-height: 2em;
+  &__form-title {
+    h2 {
+      margin: 10px;
+    }
+  }
+  &__form-box {
+    padding: 15px;
+    font-size: 16px;
+    &__field input {
+      width: 300px;
+      height: 25px;
+      margin: 5px;
+    }
+    &__actions input {
+      height: 30px;
+      width: 80px;
+      margin: 15px;
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background-color: $color_1;
+      }
+    }
+    
+  }
+}
+  
