@@ -52,5 +52,5 @@ production:
   database: malls_production
 
   username: root
-  password: <%= ENV['malls1125'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
