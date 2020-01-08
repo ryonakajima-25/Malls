@@ -45,6 +45,15 @@
             = f.label :target_age, {value: :'60代〜'}
             = f.check_box :target_age,{ multiple: true, :checked => "checked"}, '不問', nil
             = f.label :target_age, {value: :'不問'}
+            -# = f.label :target_age
+            -# - checked = @brand.target_age.presence || []
+            -# - target_age = [ 1 => "〜10代", 2 => "20代", 3 => "30代" ]
+            -# - target_age.each do |key, value|
+            -#   - checkedval = checked.include?(key) ? true : false
+            -#   - concat f.check_box :target_age ,{ multiple: true, checked: checkedval }, key, nil
+            -#   - concat value
+            -#   - concat ""
+
 
         %tr
           %td.text 最小面積（坪）
