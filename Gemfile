@@ -65,6 +65,7 @@ gem "font-awesome-sass"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari', '~> 0.17.0'
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn', '5.4.1'
