@@ -2,7 +2,7 @@
 // -------------フォント変更-----------------
 @font-face {
   font-family: 'FLOP';
-  src: url('flopdesign.ttf') format('truetype');
+  src: asset_url('flopdesign.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -31,6 +31,6 @@ $color_te2:rgb(255, 235, 235);
   box-sizing: border-box;
 }
 
-a, li {
+a {
   text-decoration: none;
 }

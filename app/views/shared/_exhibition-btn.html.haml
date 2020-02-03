@@ -1,0 +1,12 @@
+
+- if developer_signed_in?
+  .exhibition.dv
+    = link_to new_space_path , class: 'dv' do
+      %label
+        = icon('fas', 'city') 
+        %p 区画登録
+- elsif tenant_signed_in?
+  .exhibition.te
+    = link_to new_brand_path do
+      = icon('fas', 'store')
+      %p.te 業態登録
