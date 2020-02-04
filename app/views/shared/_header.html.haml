@@ -1,0 +1,35 @@
+
+%header
+  .nav
+    .list
+      = link_to root_path, class: 'logo' do
+        Malls
+      = link_to spaces_path do
+        施設一覧
+      = link_to brands_path do
+        ブランド一覧
+
+    - if developer_signed_in?
+      .list.right.dv
+        ログインユーザー：
+        = link_to developer_path(current_developer) do
+          #{current_developer.company}/#{current_developer.name}様
+        = link_to destroy_developer_session_path , method: :delete do
+          ログアウト
+    - elsif tenant_signed_in?
+      .list.right.te
+        ログインユーザー：
+        = link_to tenant_path(current_tenant) do
+          #{current_tenant.company}/#{current_tenant.name}様
+        = link_to destroy_tenant_session_path , method: :delete do
+          ログアウト
+    - else
+      .list.right
+        = link_to new_developer_registration_path do
+          DV新規登録
+        = link_to new_developer_session_path do
+          DVサインイン
+        = link_to new_tenant_registration_path do
+          TE新規登録
+        = link_to new_tenant_session_path do
+          TEサインイン

@@ -10,12 +10,11 @@
 
 
   %body
-    %header
-      = render 'layouts/header'
+    = render 'shared/header'
     #contents
       = yield
-    %footer
-      %p Copyright Ryo Nakajima All Rights Reserved.
+    = render 'shared/footer'
+    = render 'shared/exhibition-btn'
 
 
 
