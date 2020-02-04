@@ -1,13 +1,16 @@
 .top {
   width: 100%;
-  height: calc(100vh - 90px);
+  height: 1000px;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  padding-top: 100px;
+  &.top-back {
+    background: image-url('malls_back.jpg');
+    background-size: cover;
+  }
   &__btn {
     width: 400px;
     height: 400px;
-    background-color: white;
     text-align: center;
     border-radius: 5%;
     a {
