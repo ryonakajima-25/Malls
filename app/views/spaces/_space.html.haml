@@ -16,7 +16,6 @@
     %i.fas.fa-heart 
     %p= space.nices.count
 
-  - if developer_signed_in?
     %ul.btn
       %li= link_to '詳細', space_path(space.id)
       - if current_developer.id == space.developer_id

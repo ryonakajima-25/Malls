@@ -33,3 +33,7 @@
           TE新規登録
         = link_to new_tenant_session_path do
           TEサインイン
+        = form_for(:developer, url: developer_session_path, class: 'test-login') do |f|
+          = f.hidden_field :email, value: 'sample@gmail.com'
+          = f.hidden_field :password, value: 'sample2020'
+          = f.submit 'テストログイン'
