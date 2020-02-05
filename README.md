@@ -4,8 +4,8 @@
 
 # DEMO
  
-![malls_exp1.png](.assets/images/malls_exp1.png)
-![malls_exp2.png](.assets/images/malls_exp2.png)
+![malls_exp1.png](malls_exp1.png)
+![malls_exp2.png](assets/images/malls_exp2.png)
 
 # 使用技術
 * HTML（Haml）, CSS（SCSS）, Ruby, Ruby on Rails, JavaScript, jQuery, GitHub, AWS（EC2、S3）, GoogleAPI
