@@ -66,9 +66,9 @@ footer {
 // ---------------ボタン-------------------
 
 .exhibition {
-  border-radius: 25%;
-  height: 160px;
-  width: 160px;
+  border-radius: 10%;
+  height: 120px;
+  width: 120px;
   position: fixed;
   bottom: 50px;
   right: 50px;
@@ -84,18 +84,18 @@ footer {
     display: block;
     display: inline-block;
     border-radius: 25%;
-    height: 160px;
-    width: 160px;
+    height: 120px;
+    width: 120px;
     i {
-      padding: 20px 0;
+      padding: 10px 0;
       text-align: center;
-      width: 160px;
+      width: 120px;
       font-size: 60px;
       color: white;
     }
     p {
       text-align: center;
-      font-size: 32px;
+      font-size: 24px;
       color: white;
     }
   }
