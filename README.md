@@ -4,7 +4,7 @@
 
 # DEMO
  
-![malls_exp1.png](/assets/images/malls_exp1.png)
+![malls_exp1.png](app/assets/images/malls_exp1.png)
 ![malls_exp2.png](app/assets/images/malls_exp2.png)
 
 # 使用技術
