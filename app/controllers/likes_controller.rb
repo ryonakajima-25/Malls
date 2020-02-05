@@ -1,22 +1,23 @@
 class LikesController < ApplicationController
-  before_action :set_target, only: [:create, :destroy]
+  # before_action :set_space, only: [:create, :destroy]
 
   def create
-    if @space.present?
+    # binding.pry
+    if params[:space_id]
       @like = current_user.likes.create(space_id: params[:space_id])
       redirect_to space_path(@space)
-    elsif @brand.present?
+    else
       @like = current_user.likes.create(brand_id: params[:brand_id])
       redirect_to brand_path(@brand)
     end
   end
 
   def destroy
-    if @space.present?
+    if params[:space_id]
       like = current_user.likes.find_by(space_id: params[:space_id])
       like.destroy
       redirect_to space_path(@space)
-    elsif @brand.present?
+    else
       like = current_user.likes.find_by(brand_id: params[:brand_id])
       like.destroy
       redirect_to brand_path(@brand)
@@ -24,12 +25,12 @@ class LikesController < ApplicationController
   end
 
   private
-
-  def set_target
-    if current_url.include?("spaces")
-      @space = Space.find(params[:space_id])
-    elsif current_url.include?("brands")
-      @brand = Brand.find(params[:brand_id])
-    end
-  end
+  # def set_target
+  #   binding.pry
+  #   if params[:space_id]
+  #     @space = Space.find(params[:space_id])
+  #   elsif params[:brand_id]
+  #     @brand = Brand.find(params[:brand_id])
+  #   end
+  # end
 end
