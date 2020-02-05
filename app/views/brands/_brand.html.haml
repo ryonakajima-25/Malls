@@ -3,7 +3,7 @@
     %li ブランド名：#{brand.name}
     %li 業種：#{brand.category_large}／#{brand.category_small}
     %li 対象性別：#{brand.target_sex}
-    %li 対象年齢：#{brand.target_age.gsub(/[""]/,"").delete("[]")}
+    %li 対象年齢：#{brand.target_age}
     %li 適正面積：#{brand.area_min}坪〜#{brand.area_max}坪
     投稿者：#{brand.user.company}
     = link_to user_path(brand.user_id) do
