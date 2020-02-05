@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "top#index"
-  devise_for :tenants
-  devise_for :developers
-  resources :spaces do
-    resources :nices, only: [:create, :destroy]
-  end
-  resources :brands do
-    resources :goods, only: [:create, :destroy]
-  end
-  resources :developers, only: :show
-  resources :tenants, only: :show
+  resources :spaces 
+  resources :brands 
+  resources :users, only: [:show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -11,6 +11,10 @@
         = f.text_field :company, autofocus: true
 
       .account-page__form-box__field
+        = f.label :ジャンル　　　　　　　
+        = f.select :genre, [["商業施設所有者",1],["出店者", 2]]
+
+      .account-page__form-box__field
         = f.label :氏名　　　　　　　　
         = f.text_field :name, autocomplete: "name"
 
