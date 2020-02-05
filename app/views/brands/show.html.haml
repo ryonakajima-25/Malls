@@ -1,6 +1,12 @@
 .title
   %h1 「#{@brand.name}」詳細ページ
-
+  - if @brand.like_user(current_user.id)
+    = link_to brand_like_path(@brand, @brand.like_user(current_user)), method: :delete, class: 'heart-icon', remote: true do
+      ■
+  - else
+    = link_to brand_likes_path(@brand), method: :post, class: 'empty-heart', remote: true do
+      □
+  %span #{@brand.likes.count}
 
 .show
   .show__left
@@ -19,7 +25,7 @@
           %td #{@brand.target_sex}
         %tr
           %td 対象年齢
-          %td #{@brand.target_age}
+          %td #{@brand.target_age.gsub(/[""]/,"").delete("[]")}
         %tr
           %td 適正面積
           %td #{@brand.area_min}坪　〜　#{@brand.area_max}坪

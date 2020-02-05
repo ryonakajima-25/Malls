@@ -1,5 +1,12 @@
 .title
   %h1 「#{@space.mall_name}」詳細ページ
+  - if @space.like_user(current_user.id)
+    = link_to space_like_path(@space, @space.like_user(current_user)), method: :delete, class: 'heart-icon', remote: true do
+      ■
+  - else
+    = link_to space_likes_path(@space), method: :post, class: 'empty-heart', remote: true do
+      □
+  %span #{@space.likes.count}
 
 .show
   .show__left

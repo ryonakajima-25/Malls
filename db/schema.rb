@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200205040050) do
+ActiveRecord::Schema.define(version: 20200205070659) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                         null: false
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20200205040050) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["user_id"], name: "index_brands_on_user_id", using: :btree
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "space_id"
+    t.integer  "brand_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_likes_on_brand_id", using: :btree
+    t.index ["space_id"], name: "index_likes_on_space_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -61,5 +72,6 @@ ActiveRecord::Schema.define(version: 20200205040050) do
   end
 
   add_foreign_key "brands", "users"
+  add_foreign_key "likes", "users"
   add_foreign_key "spaces", "users"
 end
