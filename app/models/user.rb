@@ -7,4 +7,9 @@ class User < ApplicationRecord
   has_many :brands
   has_many :likes, dependent: :destroy
 
+  enum genre: { 
+    developer:  1,  # 商業施設
+    tenant:     2   # 出店者
+  }
+
 end
