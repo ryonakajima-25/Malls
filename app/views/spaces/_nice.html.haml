@@ -1,9 +1,0 @@
-- if tenant_signed_in? && current_tenant.already_niced?(@space)
-  = link_to space_nice_path(@space), method: :delete do
-    %i.fas.fa-heart{:id => "#{@space.id}"}
-- elsif tenant_signed_in?
-  = link_to space_nices_path(@space) , method: :post do
-    %i.far.fa-heart{:id => "#{@space.id}"}
-- else
-  %i.fas.fa-heart
-%p #{@space.nices.count}

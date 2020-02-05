@@ -2,7 +2,7 @@ class SpacesController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @spaces = Space.all.order("nices_count DESC").page(params[:page]).per(6)
+    @spaces = Space.all.page(params[:page]).per(6)
   end
 
   def new
@@ -11,8 +11,11 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
-    @space.save
-    redirect_to '/'
+    if @space.save
+      redirect_to spaces_path
+    else
+      render new_product_path
+    end
   end
 
   def destroy
@@ -31,12 +34,11 @@ class SpacesController < ApplicationController
 
   def show
     set_space
-    @nice = Nice.new
   end
 
   private
   def space_params
-    params.require(:space).permit(:location, :mall_name, :floor, :block_number, :area, :rent, :sector, :image).merge(developer_id: current_developer.id)
+    params.require(:space).permit(:location, :mall_name, :floor, :block_number, :area, :rent, :sector, :image).merge(user_id: current_user.id)
   end
 
   def set_space
@@ -44,7 +46,7 @@ class SpacesController < ApplicationController
   end
 
   def move_to_index
-    redirect_to action: :index unless developer_signed_in?
+    redirect_to action: :index unless current_user.genre == 1
   end
 
 end

@@ -9,31 +9,21 @@
       = link_to brands_path do
         ブランド一覧
 
-    - if developer_signed_in?
-      .list.right.dv
+    - if user_signed_in?
+      .list.right
         ログインユーザー：
-        = link_to developer_path(current_developer) do
-          #{current_developer.company}/#{current_developer.name}様
-        = link_to destroy_developer_session_path , method: :delete do
-          ログアウト
-    - elsif tenant_signed_in?
-      .list.right.te
-        ログインユーザー：
-        = link_to tenant_path(current_tenant) do
-          #{current_tenant.company}/#{current_tenant.name}様
-        = link_to destroy_tenant_session_path , method: :delete do
+        = link_to user_path(current_user) do
+          #{current_user.company}/#{current_user.name}様
+        = link_to destroy_user_session_path , method: :delete do
           ログアウト
     - else
       .list.right
-        = link_to new_developer_registration_path do
-          DV新規登録
-        = link_to new_developer_session_path do
-          DVサインイン
-        = link_to new_tenant_registration_path do
-          TE新規登録
-        = link_to new_tenant_session_path do
-          TEサインイン
-        = form_for(:developer, url: developer_session_path, class: 'test-login') do |f|
+        = link_to new_user_registration_path do
+          新規登録
+        = link_to new_user_session_path do
+          サインイン
+
+        = form_for(:user, url: user_session_path, class: 'test-login') do |f|
           = f.hidden_field :email, value: 'sample@gmail.com'
           = f.hidden_field :password, value: 'sample2020'
           = f.submit 'テストログイン'

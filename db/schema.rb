@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200106072041) do
+ActiveRecord::Schema.define(version: 20200205040050) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                         null: false
@@ -21,43 +21,11 @@ ActiveRecord::Schema.define(version: 20200106072041) do
     t.integer  "area_max",                     null: false
     t.integer  "area_min",                     null: false
     t.text     "sales_record",   limit: 65535
+    t.string   "image"
+    t.integer  "user_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.integer  "tenant_id"
-    t.string   "image"
-    t.integer  "goods_count"
-  end
-
-  create_table "developers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "company",                default: "", null: false
-    t.string   "name",                   default: "", null: false
-    t.string   "work_location",          default: "", null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "phone_number",           default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_developers_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true, using: :btree
-  end
-
-  create_table "goods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "brand_id"
-    t.integer  "developer_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "nices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "space_id"
-    t.integer  "tenant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["space_id"], name: "index_nices_on_space_id", using: :btree
-    t.index ["tenant_id"], name: "index_nices_on_tenant_id", using: :btree
+    t.index ["user_id"], name: "index_brands_on_user_id", using: :btree
   end
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -69,15 +37,15 @@ ActiveRecord::Schema.define(version: 20200106072041) do
     t.integer  "rent"
     t.string   "sector"
     t.string   "image"
+    t.integer  "user_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
-    t.integer  "developer_id"
-    t.integer  "nices_count"
-    t.index ["developer_id"], name: "index_spaces_on_developer_id", using: :btree
+    t.index ["user_id"], name: "index_spaces_on_user_id", using: :btree
   end
 
-  create_table "tenants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "company",                default: "", null: false
+    t.integer  "genre",                               null: false
     t.string   "name",                   default: "", null: false
     t.string   "work_location",          default: "", null: false
     t.string   "email",                  default: "", null: false
@@ -88,11 +56,10 @@ ActiveRecord::Schema.define(version: 20200106072041) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_tenants_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_tenants_on_reset_password_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "nices", "spaces"
-  add_foreign_key "nices", "tenants"
-  add_foreign_key "spaces", "developers"
+  add_foreign_key "brands", "users"
+  add_foreign_key "spaces", "users"
 end

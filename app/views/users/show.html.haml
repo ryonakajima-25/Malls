@@ -1,0 +1,10 @@
+.section
+  .title
+    %h3 #{@user.name}さんの投稿
+  - if @user.genre == 1 
+    - @spaces.each do |space|
+      = render partial: "spaces/space", locals: { space: space }
+  - elsif @user.genre == 2
+    - @brands.each do |brand|
+      = render partial: "brands/brand", locals: { brand: brand }
+      

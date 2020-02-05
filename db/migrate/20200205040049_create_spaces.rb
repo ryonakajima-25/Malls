@@ -5,12 +5,12 @@ class CreateSpaces < ActiveRecord::Migration[5.0]
       t.string :mall_name,       null: false
       t.integer :floor,          null: false
       t.integer :block_number,   null: false
-      t.integer :area,           null: false
+      t.decimal :area,           null: false , precision: 6, scale: 2
       t.integer :rent
       t.string :sector
       t.string :image
+      t.references :user,    foreign_key: true
       t.timestamps
-      t.references :developer,    foreign_key: true
     end
   end
 end
