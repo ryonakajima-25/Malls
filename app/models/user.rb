@@ -13,7 +13,5 @@ class User < ApplicationRecord
     developer:  1,  # 商業施設
     tenant:     2   # 出店者
   }
-
-
-
+  
 end
