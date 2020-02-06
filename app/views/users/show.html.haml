@@ -7,4 +7,13 @@
   - else
     - @brands.each do |brand|
       = render partial: "brands/brand", locals: { brand: brand }
-      
+
+  .title
+    %h3 #{@user.name}さんがいいねした商業施設
+  - @user.liked_spaces.each do |space|
+    = render partial: "spaces/space", locals: { space: space }
+
+  .title
+    %h3 #{@user.name}さんがいいねした出店者
+  - @user.liked_brands.each do |brand|
+    = render partial: "brands/brand", locals: { brand: brand }

@@ -15,9 +15,12 @@
   .brand__like
     =render partial: '/likes/like_brand', locals:{ brand: brand }
 
-  - if user_signed_in?
+  - if current_user
     %ul.btn
       %li= link_to '詳細', brand_path(brand.id)
       - if current_user.id == brand.user_id
         %li= link_to '編集', edit_brand_path(brand.id)
         %li= link_to '削除', brand_path(brand.id), method: :delete
+  - else
+    %ul.btn
+      %li= link_to '詳細', brand_path(brand.id)
