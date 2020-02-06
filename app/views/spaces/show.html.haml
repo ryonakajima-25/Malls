@@ -1,6 +1,6 @@
 .title
   %h1 「#{@space.mall_name}」詳細ページ
-
+  =render partial: '/likes/like_space', locals:{ space: @space }
 .show
   .show__left
     .show__left__image

@@ -1,6 +1,6 @@
 .title
   %h1 「#{@brand.name}」詳細ページ
-
+  =render partial: '/likes/like_brand', locals:{ brand: @brand }
 
 .show
   .show__left

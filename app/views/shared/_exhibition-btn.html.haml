@@ -1,10 +1,10 @@
 - if user_signed_in?
-  -if current_user.genre == 1
+  -if current_user.genre == 'developer'
     .exhibition.dv
       = link_to new_space_path  do
         = icon('fas', 'city') 
         %p 区画登録
-  - if current_user.genre == 2
+  - else
     .exhibition.te
       = link_to new_brand_path do
         = icon('fas', 'store')

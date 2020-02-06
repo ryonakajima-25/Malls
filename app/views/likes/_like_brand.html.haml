@@ -1,0 +1,14 @@
+#like__form
+  -if current_user
+    - if brand.like_user(current_user.id)
+      = link_to brand_like_path(brand, brand.like_user(current_user)), method: :delete, class: 'heart-icon' do
+        = icon('fas', 'heart')
+    - else
+      = link_to brand_likes_path(brand), method: :post, class: 'empty-heart' do
+        = icon('far', 'heart')
+    %span #{brand.likes.count}
+  -else
+    %a.heart-icon
+      = icon('fas', 'heart')
+    %span #{brand.likes.count}
+

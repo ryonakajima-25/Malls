@@ -11,10 +11,15 @@
   .space__image
     - if space.image.present?
       = image_tag space.image.url
+  .space__like
+    =render partial: '/likes/like_space', locals:{ space: space }
   
-  - if user_signed_in?
+  - if current_user
     %ul.btn
       %li= link_to '詳細', space_path(space.id)
       - if current_user.id == space.user_id
         %li= link_to '編集', edit_space_path(space.id)
         %li= link_to '削除', space_path(space.id), method: :delete
+  - else
+    %ul.btn
+      %li= link_to '詳細', space_path(space.id)

@@ -12,7 +12,7 @@
 
       .account-page__form-box__field
         = f.label :ジャンル　　　　　　　
-        = f.select :genre, [["商業施設所有者",1],["出店者", 2]]
+        = f.select :genre, [["商業施設", :developer],["出店者", :tenant]]
 
       .account-page__form-box__field
         = f.label :氏名　　　　　　　　

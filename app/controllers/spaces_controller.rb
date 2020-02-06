@@ -2,7 +2,7 @@ class SpacesController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @spaces = Space.all.page(params[:page]).per(6)
+    @spaces = Space.order("updated_at DESC").page(params[:page]).per(6)
   end
 
   def new
@@ -46,7 +46,7 @@ class SpacesController < ApplicationController
   end
 
   def move_to_index
-    redirect_to action: :index unless current_user.genre == 1
+    redirect_to action: :index unless current_user.genre == 'developer'
   end
 
 end
