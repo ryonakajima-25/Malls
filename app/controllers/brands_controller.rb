@@ -2,7 +2,7 @@ class BrandsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @brands = Brand.all.page(params[:page]).per(6)
+    @brands = Brand.order("updated_at DESC").page(params[:page]).per(6)
   end
 
   def new

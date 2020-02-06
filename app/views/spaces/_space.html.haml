@@ -11,6 +11,8 @@
   .space__image
     - if space.image.present?
       = image_tag space.image.url
+  .space__like
+    =render partial: '/likes/like_space', locals:{ space: space }
   
   - if user_signed_in?
     %ul.btn

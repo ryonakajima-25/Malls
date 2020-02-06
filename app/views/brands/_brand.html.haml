@@ -12,7 +12,8 @@
   .brand__image
     - if brand.image.present?
       = image_tag brand.image.url
-
+  .brand__like
+    =render partial: '/likes/like_brand', locals:{ brand: brand }
 
   - if user_signed_in?
     %ul.btn
