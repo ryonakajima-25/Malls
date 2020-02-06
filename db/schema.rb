@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200205070659) do
+ActiveRecord::Schema.define(version: 20200206131047) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                         null: false
@@ -21,11 +21,20 @@ ActiveRecord::Schema.define(version: 20200205070659) do
     t.integer  "area_max",                     null: false
     t.integer  "area_min",                     null: false
     t.text     "sales_record",   limit: 65535
-    t.string   "image"
     t.integer  "user_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["user_id"], name: "index_brands_on_user_id", using: :btree
+  end
+
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "image",      null: false
+    t.integer  "space_id"
+    t.integer  "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_images_on_brand_id", using: :btree
+    t.index ["space_id"], name: "index_images_on_space_id", using: :btree
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,8 +55,7 @@ ActiveRecord::Schema.define(version: 20200205070659) do
     t.integer  "block_number",                         null: false
     t.decimal  "area",         precision: 6, scale: 2, null: false
     t.integer  "rent"
-    t.string   "sector"
-    t.string   "image"
+    t.integer  "sector"
     t.integer  "user_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false

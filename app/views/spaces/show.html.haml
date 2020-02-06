@@ -4,7 +4,7 @@
 .show
   .show__left
     .show__left__image
-      = image_tag @space.image
+      = image_tag @images[0].image
     .show__left__info
       %table
         %tr
@@ -30,7 +30,7 @@
           %td #{@space.rent.to_s(:delimited)}円
         %tr
           %td 誘致希望業種
-          %td #{@space.sector}
+          %td #{@space.sector_i18n}
 
   .show__right
     #map

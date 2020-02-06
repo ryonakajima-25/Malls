@@ -9,10 +9,10 @@
       = space.user.name
 
   .space__image
-    - if space.image.present?
-      = image_tag space.image.url
+    - if space.images.first
+      = image_tag space.images.first.image
   .space__like
-    =render partial: '/likes/like_space', locals:{ space: space }
+    = render partial: '/likes/like_space', locals:{ space: space }
   
   - if current_user
     %ul.btn

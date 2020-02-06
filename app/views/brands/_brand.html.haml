@@ -10,8 +10,8 @@
       = brand.user.name
 
   .brand__image
-    - if brand.image.present?
-      = image_tag brand.image.url
+    - if brand.images.first
+      = image_tag brand.images.first.image
   .brand__like
     =render partial: '/likes/like_brand', locals:{ brand: brand }
 

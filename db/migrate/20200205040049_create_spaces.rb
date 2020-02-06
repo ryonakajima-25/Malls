@@ -7,8 +7,7 @@ class CreateSpaces < ActiveRecord::Migration[5.0]
       t.integer :block_number,   null: false
       t.decimal :area,           null: false , precision: 6, scale: 2
       t.integer :rent
-      t.string :sector
-      t.string :image
+      t.integer :sector
       t.references :user,    foreign_key: true
       t.timestamps
     end

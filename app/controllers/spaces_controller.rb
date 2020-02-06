@@ -7,6 +7,7 @@ class SpacesController < ApplicationController
 
   def new
     @space = Space.new
+    @space.images.new
   end
 
   def create
@@ -34,15 +35,17 @@ class SpacesController < ApplicationController
 
   def show
     set_space
+    @images = @space.images
+    binding.pry
   end
 
   private
   def space_params
-    params.require(:space).permit(:location, :mall_name, :floor, :block_number, :area, :rent, :sector, :image).merge(user_id: current_user.id)
+    params.require(:space).permit(:location, :mall_name, :floor, :block_number, :area, :rent, :sector, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def set_space
-    @space = Space.find(params[:id])
+    @space = Space.includes(:images).find(params[:id])
   end
 
   def move_to_index

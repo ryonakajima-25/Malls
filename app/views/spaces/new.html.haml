@@ -3,33 +3,72 @@
     %h2 リーシング区画を登録
   .form__table
     = form_for @space do |f|
-      %table
-        %tr
-          %td.text 所在地
-          %td= f.text_field :location
-        %tr
-          %td.text 施設名称
-          %td= f.text_field :mall_name
-        %tr
-          %td.text 階数
-          %td= f.number_field :floor
-        %tr
-          %td.text 区画番号
-          %td= f.number_field :block_number
-        %tr
-          %td.text 面積（㎡）
-          %td= f.number_field :area, step: "0.01"
-        %tr
-          %td.text 賃料（坪あたり月額）
-          %td= f.number_field :rent
-        %tr
-          %td.text 募集業種
-          %td= f.text_field :sector
-        %tr
-          %td.text 画像、写真
-          %td
-            %label
-              = icon('fas', 'image')
-              = f.file_field :image, class: 'hidden'
-      %a
-        = f.submit '送信', class: 'send-btn'
+      .row
+        所在地
+        = f.text_field :location
+      .row
+      施設名称
+      = f.text_field :mall_name
+      .row
+        階数
+        = f.number_field :floor
+      .row
+        区画番号
+        = f.number_field :block_number
+      .row
+        面積（㎡）
+        = f.number_field :area, step: "0.01"
+      .row
+        賃料（坪あたり月額）
+        = f.number_field :rent
+      .row
+        募集業種
+        = f.select :sector, [['物販店舗', :retail],['飲食店舗', :food],['サービス店舗', :service]]
+      .row
+        画像
+        #image-box
+          #previews
+            - if @space.persisted?
+              - @space.images.each_with_index do |image, x|
+                = image_tag image.image.url, data:{ index: x }, width: "120", height: '100'
+          = f.fields_for :images do |i|
+            .js-file_group{"data-index" => "#{i.index}"}
+              = i.file_field :image, class: 'js-file', id: 'img-file'
+              %span.js-remove 削除
+            - if @space.persisted?
+              = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+          - if @space.persisted?
+            .js-file_group{"data-index" => "#{@space.images.count}"}
+              = file_field_tag :image, name: "space[images_attributes][#{@space.images.count}][image]", class: 'js-file'
+              .js-remove 削除
+      = f.submit '送信', class: 'send-btn'
+-# %table
+-#   %tr
+-#     %td.text 所在地
+-#     %td= f.text_field :location
+-#   %tr
+-#     %td.text 施設名称
+-#     %td= f.text_field :mall_name
+-#   %tr
+-#     %td.text 階数
+-#     %td= f.number_field :floor
+-#   %tr
+-#     %td.text 区画番号
+-#     %td= f.number_field :block_number
+-#   %tr
+-#     %td.text 面積（㎡）
+-#     %td= f.number_field :area, step: "0.01"
+-#   %tr
+-#     %td.text 賃料（坪あたり月額）
+-#     %td= f.number_field :rent
+-#   %tr
+-#     %td.text 募集業種
+-#     %td= f.text_field :sector
+-#   %tr
+-#     %td.text 画像、写真
+-#     %td
+-#       %label
+-#         = icon('fas', 'image')
+-#         = f.file_field :image, class: 'hidden'
+-# %a
+-# = f.submit '送信', class: 'send-btn'
