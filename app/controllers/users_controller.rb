@@ -2,9 +2,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if @user.genre == 1
+    if @user.genre == "developer"
       @spaces = @user.spaces
-    elsif @user.genre == 2
+    else
       @brands = @user.brands
     end
   end

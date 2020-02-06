@@ -46,7 +46,7 @@ class SpacesController < ApplicationController
   end
 
   def move_to_index
-    redirect_to action: :index unless current_user.genre == 1
+    redirect_to action: :index unless current_user.genre == 'developer'
   end
 
 end

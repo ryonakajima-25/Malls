@@ -12,4 +12,6 @@ class User < ApplicationRecord
     tenant:     2   # 出店者
   }
 
+
+
 end

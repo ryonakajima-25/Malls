@@ -44,7 +44,7 @@ class BrandsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to action: :index unless current_user.genre == 2
+    redirect_to action: :index unless current_user.genre == 'tenant'
   end
 
 end
