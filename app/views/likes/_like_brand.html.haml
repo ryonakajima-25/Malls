@@ -1,8 +1,8 @@
 #like__form
   - if @brand.like_user(current_user.id)
-    = link_to brand_like_path(@brand, @brand.like_user(current_user)), method: :delete, class: 'heart-icon', remote: true do
+    = link_to brand_like_path(@brand, @brand.like_user(current_user)), method: :delete, class: 'heart-icon' do
       ■
   - else
-    = link_to brand_likes_path(@brand), method: :post, class: 'empty-heart', remote: true do
+    = link_to brand_likes_path(@brand), method: :post, class: 'empty-heart' do
       □
   %span #{@brand.likes.count}
