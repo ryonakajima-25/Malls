@@ -1,12 +1,6 @@
 .title
   %h1 「#{@brand.name}」詳細ページ
-  - if @brand.like_user(current_user.id)
-    = link_to brand_like_path(@brand, @brand.like_user(current_user)), method: :delete, class: 'heart-icon', remote: true do
-      ■
-  - else
-    = link_to brand_likes_path(@brand), method: :post, class: 'empty-heart', remote: true do
-      □
-  %span #{@brand.likes.count}
+  =render partial: '/likes/like_brand', locals:{ brand: @brand }
 
 .show
   .show__left

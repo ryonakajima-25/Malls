@@ -1,4 +1,4 @@
-.like__form
+#like__form
   - if @space.like_user(current_user.id)
     = link_to space_like_path(@space, @space.like_user(current_user)), method: :delete, class: 'heart-icon', remote: true do
       ■
