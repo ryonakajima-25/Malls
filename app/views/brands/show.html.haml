@@ -5,7 +5,10 @@
 .show
   .show__left
     .show__left__image
-      = image_tag @brand.images[0].image
+      = image_tag @brand.images[0].image, size: "400x300",id:"main-photo"
+      .show__left__image__mini
+        - @images.each do |i|
+          = image_tag i.image, size: "60x60", class:"mini-photo"
     .show__left__info
       %table
         %tr
