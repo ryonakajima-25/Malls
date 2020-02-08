@@ -36,7 +36,6 @@ class SpacesController < ApplicationController
   def show
     set_space
     @images = @space.images
-    binding.pry
   end
 
   private
