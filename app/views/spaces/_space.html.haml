@@ -9,8 +9,10 @@
       = space.user.name
 
   .space__image
-    - if space.images.first
-      = image_tag space.images.first.image
+    - if space.images[0]
+      = image_tag space.images[0].image, size: "240x180"
+    - if space.images[1]
+      = image_tag space.images[1].image, size: "240x180"
   .space__like
     = render partial: '/likes/like_space', locals:{ space: space }
   
