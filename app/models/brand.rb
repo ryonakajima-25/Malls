@@ -1,8 +1,8 @@
 class Brand < ApplicationRecord
-  # mount_uploader :image, ImageUploader
+  validates :name, :category_large, :category_small, :target_sex, :target_age, :area_max, :area_min,  presence: true
   belongs_to :user
   has_many :likes, dependent: :destroy
-  has_many :images
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def like_user(id)

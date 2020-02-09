@@ -1,5 +1,7 @@
 class BrandsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index,        except: [:index, :show]
+  before_action :set_brand,            only: [:show, :edit, :update, :destroy]
+  before_action :ensure_correct_user,  only: [:edit, :update, :destroy]
 
   def index
     @brands = Brand.order("updated_at DESC").page(params[:page]).per(6)
@@ -12,27 +14,36 @@ class BrandsController < ApplicationController
 
   def create
     @brand = Brand.new(brand_params)
-    @brand.save
-    redirect_to '/'
-  end
-
-  def destroy
-    brand = brand.find(params[:id])
-    brand.destroy
+    if @brand.images.present? && @brand.save
+      redirect_to brand_path(@brand)
+    else
+      redirect_to new_brand_path
+    end
   end
 
   def edit
-    set_brand
+    @images = @brand.images
   end
 
   def update
-    brand = Brand.find(params[:id])
-    brand.update(brand_params)
+    @images = @brand.images
+    if @brand.images.present? && @brand.update(brand_params)
+      redirect_to brand_path(@brand)
+    else
+      render :edit
+    end
   end
 
   def show
-    set_brand
     @images = @brand.images
+  end
+
+  def destroy
+    if @brand.destroy
+      redirect_to brands_path
+    else
+      render :show
+    end
   end
 
   private
@@ -48,4 +59,9 @@ class BrandsController < ApplicationController
     redirect_to action: :index unless current_user.genre == 'tenant'
   end
 
+  def ensure_correct_user
+    if @brand.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
 end

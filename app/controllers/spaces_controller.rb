@@ -1,5 +1,7 @@
 class SpacesController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_space,     only: [:show, :edit, :update, :destroy]
+  before_action :ensure_correct_user,  only: [:edit, :update, :destroy]
 
   def index
     @spaces = Space.order("updated_at DESC").page(params[:page]).per(6)
@@ -12,30 +14,36 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
-    if @space.save
-      redirect_to spaces_path
+    if @space.images.present? && @space.save
+      redirect_to space_path(@space)
     else
-      render new_product_path
+      redirect_to new_space_path
     end
   end
 
-  def destroy
-    space = Space.find(params[:id])
-    space.destroy
-  end
-
   def edit
-    set_space
+    @images = @space.images
   end
 
-  def update
-    space = Space.find(params[:id])
-    space.update(space_params)
+  def updated
+    @images = @space.images
+    if @space.images.present? && @space.update(space_params)
+      redirect_to space_path(@space) 
+    else
+      render :edit
+    end
   end
 
   def show
-    set_space
     @images = @space.images
+  end
+
+  def destroy
+    if @space.destroy
+      redirect_to spaces_path
+    else
+      render :show
+    end
   end
 
   private
@@ -51,4 +59,9 @@ class SpacesController < ApplicationController
     redirect_to action: :index unless current_user.genre == 'developer'
   end
 
+  def ensure_correct_user
+    if @space.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
 end

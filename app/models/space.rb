@@ -1,8 +1,8 @@
 class Space < ApplicationRecord
-  # mount_uploader :image, ImageUploader
+  validates :location, :mall_name, :floor, :block_number, :area, :rent,  presence: true
   belongs_to :user
   has_many :likes, dependent: :destroy
-  has_many :images
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def like_user(id)
@@ -14,6 +14,4 @@ class Space < ApplicationRecord
     food:    2,  # 飲食店舗
     service: 3   # サービス店舗
   }
-
-
 end
