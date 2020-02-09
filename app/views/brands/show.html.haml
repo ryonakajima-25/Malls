@@ -1,29 +1,30 @@
-.title
-  %h1 「#{@brand.name}」詳細ページ
-  =render partial: '/likes/like_brand', locals:{ brand: @brand }
-
 .show
-  .show__left
-    .show__left__image
-      = image_tag @brand.image
-    .show__left__info
-      %table
-        %tr
-          %td ブランド名
-          %td #{@brand.name}
-        %tr
-          %td 業種
-          %td #{@brand.category_large}／#{@brand.category_small}
-        %tr
-          %td 対象性別
-          %td #{@brand.target_sex}
-        %tr
-          %td 対象年齢
-          %td #{@brand.target_age}
-        %tr
-          %td 適正面積
-          %td #{@brand.area_min}坪　〜　#{@brand.area_max}坪
-        %tr
-          %td 既存店売上
-          %td #{@brand.sales_record}
-
+  .show__title
+    %h2 「#{@brand.name}」詳細ページ
+    =render partial: '/likes/like_brand', locals:{ brand: @brand }
+  .show__detail
+    .show__detail__left
+      .show__detail__left__image 
+        = image_tag @brand.images[0].image, size: "600x450",id:"main-photo"
+        .show__left__image__mini
+          - @images.each do |i|
+            = image_tag i.image, size: "100x75", class:"mini-photo"
+      .show__detail__left__info
+        .row
+          %span.keys ブランド名
+          %span.values #{@brand.name}
+        .row
+          %span.keys 業種
+          %span.values #{@brand.category_large}／#{@brand.category_small}
+        .row
+          %span.keys 対象性別
+          %span.values #{@brand.target_sex}
+        .row
+          %span.keys 対象年齢
+          %span.values #{@brand.target_age.gsub(/[""]/,"").delete("[]")}
+        .row
+          %span.keys 適正面積
+          %span.values #{@brand.area_min}坪　〜　#{@brand.area_max}坪
+        .row
+          %span.keys 既存店売上
+          %span.values #{@brand.sales_record}

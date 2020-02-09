@@ -1,0 +1,8 @@
+ja:
+  enums:
+    space:
+      sector:
+        retail:  物販店舗
+        food:    飲食店舗
+        service: サービス店舗
+        

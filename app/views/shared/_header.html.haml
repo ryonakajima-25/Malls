@@ -22,8 +22,12 @@
           新規登録
         = link_to new_user_session_path do
           サインイン
-
-        = form_for(:user, url: user_session_path, class: 'test-login') do |f|
-          = f.hidden_field :email, value: 'sample@gmail.com'
-          = f.hidden_field :password, value: 'sample2020'
-          = f.submit 'テストログイン'
+        .sample__login
+          = form_for(:user, url: user_session_path, class: 'test-login') do |f|
+            = f.hidden_field :email, value: 'sample@gmail.com'
+            = f.hidden_field :password, value: 'sample2020'
+            = f.submit 'テストログイン（商業施設）'
+          = form_for(:user, url: user_session_path, class: 'test-login') do |f|
+            = f.hidden_field :email, value: 'sample2@gmail.com'
+            = f.hidden_field :password, value: 'sample2020'
+            = f.submit 'テストログイン（テナント）'

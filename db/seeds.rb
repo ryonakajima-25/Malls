@@ -86,9 +86,23 @@ space1 = Space.create!(
   block_number:    "203",
   area:            "158.60",
   rent:            "38000",
-  sector:          "物販店舗（希望：レディス）",
-  image:           open("#{Rails.root}/db/default_images/raizu.jpg"),
+  sector:          "retail",
   user_id:         "1",
+)
+
+image1 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-1_1.jpg"),
+  space_id:        "1"
+)
+
+image2 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-1_2.jpg"),
+  space_id:        "1"
+)
+
+image3 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-1_3.jpg"),
+  space_id:        "1"
 )
 
 space2 = Space.create!(
@@ -98,9 +112,18 @@ space2 = Space.create!(
   block_number:    "102",
   area:            "180.80",
   rent:            "20000",
-  sector:          "書店",
-  image:           open("#{Rails.root}/db/default_images/ion.png"),
+  sector:          "retail",
   user_id:         "3",
+)
+
+image4 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-2_1.jpg"),
+  space_id:        "2"
+)
+
+image5 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-2_2.jpg"),
+  space_id:        "2"
 )
 
 space3 = Space.create!(
@@ -110,9 +133,18 @@ space3 = Space.create!(
   block_number:    "302",
   area:            "170.40",
   rent:            "26000",
-  sector:          "物販店舗（希望：生活雑貨）",
-  image:           open("#{Rails.root}/db/default_images/tama.png"),
+  sector:          "retail",
   user_id:         "2",
+)
+
+image6 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-3_1.jpg"),
+  space_id:        "3"
+)
+
+image7 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-3_2.jpg"),
+  space_id:        "3"
 )
 
 space4 = Space.create!(
@@ -122,9 +154,18 @@ space4 = Space.create!(
   block_number:    "322",
   area:            "90.30",
   rent:            "48000",
-  sector:          "物販店舗（希望：アクセサリー）",
-  image:           open("#{Rails.root}/db/default_images/koredo.jpg"),
+  sector:          "food",
   user_id:         "1",
+)
+
+image8 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-4_1.jpg"),
+  space_id:        "4"
+)
+
+image9 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-4_2.jpg"),
+  space_id:        "4"
 )
 
 space5 = Space.create!(
@@ -134,9 +175,18 @@ space5 = Space.create!(
   block_number:    "222",
   area:            "160.80",
   rent:            "39000",
-  sector:          "アウトドアショップ",
-  image:           open("#{Rails.root}/db/default_images/ga-denzu.jpeg"),
+  sector:          "retail",
   user_id:         "4",
+)
+
+image10 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-5_1.jpeg"),
+  space_id:        "5"
+)
+
+image11 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-5_2.jpg"),
+  space_id:        "5"
 )
 
 space6 = Space.create!(
@@ -146,9 +196,18 @@ space6 = Space.create!(
   block_number:    "180",
   area:            "270.58",
   rent:            "21000",
-  sector:          "物販店舗（希望：生活雑貨）",
-  image:           open("#{Rails.root}/db/default_images/gurahuro.png"),
+  sector:          "retail",
   user_id:         "2",
+)
+
+image12 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-6_1.jpg"),
+  space_id:        "6"
+)
+
+image13 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-6_2.jpg"),
+  space_id:        "6"
 )
 
 space7 = Space.create!(
@@ -158,9 +217,18 @@ space7 = Space.create!(
   block_number:    "340",
   area:            "400.72",
   rent:            "24000",
-  sector:          "物販店舗（希望：シューズ）",
-  image:           open("#{Rails.root}/db/default_images/ion.png"),
+  sector:          "retail",
   user_id:         "2",
+)
+
+image14 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-7_1.jpg"),
+  space_id:        "7"
+)
+
+image15 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-7_2.jpg"),
+  space_id:        "7"
 )
 
 brand1 = Brand.create!(
@@ -168,12 +236,21 @@ brand1 = Brand.create!(
   category_large:   "物販店舗",
   category_small:   "生活雑貨",
   target_sex:       "不問",
-  target_age:       "20代,30代,40代",
+  target_age:       ["〜10代", "20代", "30代", "40代", "50代", "60代〜"],
   area_max:         "1000",
   area_min:         "200",
-  sales_record:     "",
-  image:            open("#{Rails.root}/db/default_images/muji.jpg"),
+  sales_record:     "非公開",
   user_id:         "8",
+)
+
+image16 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-1_1.jpg"),
+  brand_id:        "1"
+)
+
+image17 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-1_2.jpg"),
+  brand_id:        "1"
 )
 
 brand2 = Brand.create!(
@@ -181,12 +258,21 @@ brand2 = Brand.create!(
   category_large:   "物販店舗",
   category_small:   "レディスファッション",
   target_sex:       "女性",
-  target_age:       "20代,30代",
+  target_age:       [ "20代", "30代"],
   area_max:         "120",
   area_min:         "60",
   sales_record:     "新宿店：年商4.5億",
-  image:            open("#{Rails.root}/db/default_images/muji.jpg"),
   user_id:         "7",
+)
+
+image18 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-1_1.jpg"),
+  brand_id:        "2"
+)
+
+image19 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-1_2.jpg"),
+  brand_id:        "2"
 )
 
 
@@ -195,64 +281,109 @@ brand3 = Brand.create!(
   category_large:   "飲食店舗",
   category_small:   "寿司・海鮮",
   target_sex:       "不問",
-  target_age:       "不問",
+  target_age:       ["不問"],
   area_max:         "20",
   area_min:         "10",
   sales_record:     "丸の内店：年商2億",
-  image:            open("#{Rails.root}/db/default_images/kyoutaru.jpg"),
   user_id:         "5",
 )
 
-brand3 = Brand.create!(
+image20 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-3_1.jpg"),
+  brand_id:        "3"
+)
+
+image21 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-3_2.jpg"),
+  brand_id:        "3"
+)
+
+brand4 = Brand.create!(
   name:             "ユニクロ",
   category_large:   "物販店舗",
   category_small:   "カジュアルファッション",
   target_sex:       "不問",
-  target_age:       "〜10代,20代,30代,40代,50代〜",
+  target_age:       ["〜10代", "20代", "30代", "40代", "50代", "60代〜"],
   area_max:         "1200",
   area_min:         "200",
-  sales_record:     "",
-  image:            open("#{Rails.root}/db/default_images/yunikuro.jpg"),
+  sales_record:     "非公開",
   user_id:         "6",
 )
 
-brand4 = Brand.create!(
+image22 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-4_1.jpg"),
+  brand_id:        "4"
+)
+
+image23 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-4_2.jpg"),
+  brand_id:        "4"
+)
+
+brand5 = Brand.create!(
   name:             "セオリー",
   category_large:   "物販店舗",
   category_small:   "SPAファッション",
   target_sex:       "不問",
-  target_age:       "30代,40代,50代〜",
+  target_age:       ["30代", "40代", "50代"],
   area_max:         "200",
   area_min:         "60",
-  sales_record:     "",
-  image:            open("#{Rails.root}/db/default_images/theory.jpg"),
+  sales_record:     "非公開",
   user_id:         "6",
 )
 
-brand5 = Brand.create!(
+image24 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-5_1.jpg"),
+  brand_id:        "5"
+)
+
+image25 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-5_2.jpg"),
+  brand_id:        "5"
+)
+
+brand6 = Brand.create!(
   name:             "PLST",
   category_large:   "物販店舗",
   category_small:   "SPAファッション",
   target_sex:       "不問",
-  target_age:       "20代,30代",
+  target_age:       ["20代", "30代", "40代"],
   area_max:         "200",
   area_min:         "60",
-  sales_record:     "",
-  image:            open("#{Rails.root}/db/default_images/plst.jpg"),
+  sales_record:     "非公開",
   user_id:         "6",
 )
 
-brand6 = Brand.create!(
+image26 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-6_1.jpg"),
+  brand_id:        "6"
+)
+
+image27 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-6_2.jpeg"),
+  brand_id:        "6"
+)
+
+brand7 = Brand.create!(
   name:             "スターバックスコーヒー",
   category_large:   "飲食店舗",
   category_small:   "カフェ",
   target_sex:       "不問",
-  target_age:       "不問",
+  target_age:       ["不問"],
   area_max:         "200",
   area_min:         "80",
   sales_record:     "非公開",
-  image:            open("#{Rails.root}/db/default_images/sytaba.jpg"),
   user_id:         "5",
+)
+
+image28 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-7_1.jpg"),
+  brand_id:        "7"
+)
+
+image29 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-7_2.png"),
+  brand_id:        "7"
 )
 
 like1 = Like.create!(
