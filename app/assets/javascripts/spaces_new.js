@@ -1,11 +1,9 @@
 $(function(){
   const buildFileField = (num)=> {
     const html = `<div data-index="${num}" class="js-file_group">
-    <input class="js-file" type="file"
-    name="space[images_attributes][${num}][image]"
-    id="space_images_attributes_${num}_image"><br>
+    <input class="js-file" type="file" name="space[images_attributes][${num}][image]"id="space_images_attributes_${num}_image">
     <span class="js-remove">削除</span>
-  </div>`;
+    </div>`;
     return html;
   }
   const buildImg = (index, url)=> {

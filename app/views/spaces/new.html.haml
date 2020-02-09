@@ -40,5 +40,5 @@
           - if @space.persisted?
             .js-file_group{"data-index" => "#{@space.images.count}"}
               = file_field_tag :image, name: "space[images_attributes][#{@space.images.count}][image]", class: 'js-file'
-              -# .js-remove 削除
+              .js-remove 削除
       = f.submit '送信', class: 'send-btn'

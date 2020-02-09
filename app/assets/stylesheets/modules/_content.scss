@@ -108,6 +108,7 @@
         width: 300px;
         display: inline-block;
         font-size: 24px;
+        line-height: 40px;
       }
       input, select {
         height: 40px;
@@ -115,51 +116,27 @@
         border-radius: 3px;
         border: solid 1px $color_1;
       }
+      #space_image-box {
+        input {  
+          border: none;  
+          width: 450px;
+        }
+        .js-remove {
+          font-size: 18px;
+        }
+      }
+    }
+    .send-btn {
+      width: 300px;
+      height: 40px;
+      font-size: 24px;
+      border-radius: 5px;
+      margin: 15px 0;
+      &:hover {
+        background-color: $color_dv1;
+        color: white;
+        transition: 0.5s;
+      }
     }
   }
-  // &__space {
-  //     font-size: 18px;
-  //     td {
-  //       border: solid 1px black;
-  //       padding: 5px;
-  //       #brand_name, 
-  //       #brand_category_small,
-  //       #space_location,
-  //       #space_mall_name,
-  //       #space_sector {
-  //         height: 24px;
-  //         width: 600px;
-  //         font-size: 16px;
-  //       }
-  //       #brand_area_min,
-  //       #brand_area_max,
-  //       #space_floor,
-  //       #space_block_number,
-  //       #space_area,
-  //       #space_rent {
-  //         height: 24px;
-  //         width: 120px;
-  //         font-size: 16px;
-  //       }
-  //       textarea {
-  //         height: 72px;
-  //         width: 600px;
-  //         font-size: 16px;
-  //       }
-  //       .fa-image {
-  //         font-size: 40px;
-  //       }
-  //     }
-  //   .send-btn {
-  //     width: 60px;
-  //     font-size: 20px;
-  //     height: 40px;
-  //     margin: 15px;
-  //     &:hover {
-  //     cursor: pointer;
-  //     color: white;
-  //     background-color: $color_1;
-  //     }
-  //   }
-  // }
 }
