@@ -5,10 +5,10 @@
   .show__detail
     .show__detail__left
       .show__detail__left__image 
-        = image_tag @brand.images[0].image, size: "400x300",id:"main-photo"
+        = image_tag @brand.images[0].image, size: "600x450",id:"main-photo"
         .show__left__image__mini
           - @images.each do |i|
-            = image_tag i.image, size: "60x60", class:"mini-photo"
+            = image_tag i.image, size: "100x75", class:"mini-photo"
       .show__detail__left__info
         .row
           %span.keys ブランド名

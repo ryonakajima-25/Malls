@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20200206131047) do
     t.string   "name",                         null: false
     t.string   "category_large",               null: false
     t.string   "category_small",               null: false
-    t.string   "target_sex"
-    t.string   "target_age"
+    t.string   "target_sex",                   null: false
+    t.string   "target_age",                   null: false
     t.integer  "area_max",                     null: false
     t.integer  "area_min",                     null: false
     t.text     "sales_record",   limit: 65535
@@ -49,16 +49,16 @@ ActiveRecord::Schema.define(version: 20200206131047) do
   end
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "location",                             null: false
-    t.string   "mall_name",                            null: false
-    t.integer  "floor",                                null: false
-    t.integer  "block_number",                         null: false
-    t.decimal  "area",         precision: 6, scale: 2, null: false
-    t.integer  "rent"
-    t.integer  "sector"
+    t.string   "location",                                         null: false
+    t.string   "mall_name",                                        null: false
+    t.integer  "floor",                                            null: false
+    t.integer  "block_number",                                     null: false
+    t.decimal  "area",         precision: 6, scale: 2,             null: false
+    t.integer  "rent",                                             null: false
+    t.integer  "sector",                               default: 0
     t.integer  "user_id"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.index ["user_id"], name: "index_spaces_on_user_id", using: :btree
   end
 

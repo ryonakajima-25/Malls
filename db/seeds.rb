@@ -91,7 +91,17 @@ space1 = Space.create!(
 )
 
 image1 = Image.create!(
-  image:           open("#{Rails.root}/db/default_images/raizu.jpg"),
+  image:           open("#{Rails.root}/db/default_images/s-1_1.jpg"),
+  space_id:        "1"
+)
+
+image2 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-1_2.jpg"),
+  space_id:        "1"
+)
+
+image3 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-1_3.jpg"),
   space_id:        "1"
 )
 
@@ -106,8 +116,13 @@ space2 = Space.create!(
   user_id:         "3",
 )
 
-image2 = Image.create!(
-  image:           open("#{Rails.root}/db/default_images/ion.png"),
+image4 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-2_1.jpg"),
+  space_id:        "2"
+)
+
+image5 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-2_2.jpg"),
   space_id:        "2"
 )
 
@@ -122,8 +137,13 @@ space3 = Space.create!(
   user_id:         "2",
 )
 
-image3 = Image.create!(
-  image:           open("#{Rails.root}/db/default_images/tama.png"),
+image6 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-3_1.jpg"),
+  space_id:        "3"
+)
+
+image7 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-3_2.jpg"),
   space_id:        "3"
 )
 
@@ -138,8 +158,13 @@ space4 = Space.create!(
   user_id:         "1",
 )
 
-image4 = Image.create!(
-  image:           open("#{Rails.root}/db/default_images/koredo.jpg"),
+image8 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-4_1.jpg"),
+  space_id:        "4"
+)
+
+image9 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-4_2.jpg"),
   space_id:        "4"
 )
 
@@ -154,8 +179,13 @@ space5 = Space.create!(
   user_id:         "4",
 )
 
-image5 = Image.create!(
-  image:           open("#{Rails.root}/db/default_images/ga-denzu.jpeg"),
+image10 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-5_1.jpeg"),
+  space_id:        "5"
+)
+
+image11 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-5_2.jpg"),
   space_id:        "5"
 )
 
@@ -170,8 +200,13 @@ space6 = Space.create!(
   user_id:         "2",
 )
 
-image6 = Image.create!(
-  image:           open("#{Rails.root}/db/default_images/gurahuro.png"),
+image12 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-6_1.jpg"),
+  space_id:        "6"
+)
+
+image13 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-6_2.jpg"),
   space_id:        "6"
 )
 
@@ -186,8 +221,13 @@ space7 = Space.create!(
   user_id:         "2",
 )
 
-image7 = Image.create!(
-  image:           open("#{Rails.root}/db/default_images/ion.png"),
+image14 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-7_1.jpg"),
+  space_id:        "7"
+)
+
+image15 = Image.create!(
+  image:           open("#{Rails.root}/db/default_images/s-7_2.jpg"),
   space_id:        "7"
 )
 
@@ -199,12 +239,17 @@ brand1 = Brand.create!(
   target_age:       ["〜10代", "20代", "30代", "40代", "50代", "60代〜"],
   area_max:         "1000",
   area_min:         "200",
-  sales_record:     "",
+  sales_record:     "非公開",
   user_id:         "8",
 )
 
-image8 = Image.create!(
-  image:            open("#{Rails.root}/db/default_images/muji.jpg"),
+image16 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-1_1.jpg"),
+  brand_id:        "1"
+)
+
+image17 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-1_2.jpg"),
   brand_id:        "1"
 )
 
@@ -220,8 +265,13 @@ brand2 = Brand.create!(
   user_id:         "7",
 )
 
-image9 = Image.create!(
-  image:            open("#{Rails.root}/db/default_images/adam.jpg"),
+image18 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-1_1.jpg"),
+  brand_id:        "2"
+)
+
+image19 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-1_2.jpg"),
   brand_id:        "2"
 )
 
@@ -238,8 +288,13 @@ brand3 = Brand.create!(
   user_id:         "5",
 )
 
-image10 = Image.create!(
-  image:            open("#{Rails.root}/db/default_images/kyoutaru.jpg"),
+image20 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-3_1.jpg"),
+  brand_id:        "3"
+)
+
+image21 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-3_2.jpg"),
   brand_id:        "3"
 )
 
@@ -251,12 +306,17 @@ brand4 = Brand.create!(
   target_age:       ["〜10代", "20代", "30代", "40代", "50代", "60代〜"],
   area_max:         "1200",
   area_min:         "200",
-  sales_record:     "",
+  sales_record:     "非公開",
   user_id:         "6",
 )
 
-image11 = Image.create!(
-  image:            open("#{Rails.root}/db/default_images/yunikuro.jpg"),
+image22 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-4_1.jpg"),
+  brand_id:        "4"
+)
+
+image23 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-4_2.jpg"),
   brand_id:        "4"
 )
 
@@ -268,12 +328,17 @@ brand5 = Brand.create!(
   target_age:       ["30代", "40代", "50代"],
   area_max:         "200",
   area_min:         "60",
-  sales_record:     "",
+  sales_record:     "非公開",
   user_id:         "6",
 )
 
-image12 = Image.create!(
-  image:            open("#{Rails.root}/db/default_images/theory.jpg"),
+image24 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-5_1.jpg"),
+  brand_id:        "5"
+)
+
+image25 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-5_2.jpg"),
   brand_id:        "5"
 )
 
@@ -285,12 +350,17 @@ brand6 = Brand.create!(
   target_age:       ["20代", "30代", "40代"],
   area_max:         "200",
   area_min:         "60",
-  sales_record:     "",
+  sales_record:     "非公開",
   user_id:         "6",
 )
 
-image13 = Image.create!(
-  image:            open("#{Rails.root}/db/default_images/plst.jpg"),
+image26 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-6_1.jpg"),
+  brand_id:        "6"
+)
+
+image27 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-6_2.jpeg"),
   brand_id:        "6"
 )
 
@@ -306,8 +376,13 @@ brand7 = Brand.create!(
   user_id:         "5",
 )
 
-image14 = Image.create!(
-  image:            open("#{Rails.root}/db/default_images/sytaba.jpg"),
+image28 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-7_1.jpg"),
+  brand_id:        "7"
+)
+
+image29 = Image.create!(
+  image:            open("#{Rails.root}/db/default_images/b-7_2.png"),
   brand_id:        "7"
 )
 
