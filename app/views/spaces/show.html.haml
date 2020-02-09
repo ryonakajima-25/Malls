@@ -1,75 +1,74 @@
-.title
-  %h1 「#{@space.mall_name}」詳細ページ
-  =render partial: '/likes/like_space', locals:{ space: @space }
 .show
-  .show__left
-    .show__left__image
-      = image_tag @space.images[0].image, size: "400x300",id:"main-photo"
-      .show__left__image__mini
-        - @images.each do |i|
-          = image_tag i.image, size: "60x60", class:"mini-photo"
-    .show__left__info
-      %table
-        %tr
-          %td 所在地
-          %td #{@space.location}
-        %tr
-          %td 施設名称
-          %td #{@space.mall_name}
-        %tr
-          %td フロア
-          %td #{@space.floor}階
-        %tr
-          %td 区画番号
-          %td #{@space.block_number}
-        %tr
-          %td 面積
-          %td #{(@space.area * 0.3025).floor(2)}坪
-        %tr
-          %td 月額賃料
-          %td #{(@space.rent * (@space.area * 0.3025).floor(2)).floor.to_s(:delimited)}円
-        %tr
-          %td 坪あたりの賃料
-          %td #{@space.rent.to_s(:delimited)}円
-        %tr
-          %td 誘致希望業種
-          %td #{@space.sector_i18n}
-
-  .show__right
-    #map
-    :javascript
-      function drawMap(address) {
-          var geocoder = new google.maps.Geocoder();
-          geocoder.geocode(
-                  {
-                      'address': address,
-                      'region': 'jp'
-                  },
-                  function (results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-                          google.maps.event.addDomListener(window, 'load', function () {
-                              var map_tag = document.getElementById('map');
-                              var map_location = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
-                              var map_options =
-                              {
-                                  zoom: 13,
-                                  center: map_location,
-                                  disableDefaultUI: true,
-                                  mapTypeId: google.maps.MapTypeId.ROADMAP,
-                              };
-                              var map = new google.maps.Map(map_tag, map_options);
-                              var marker = new google.maps.Marker({
-                                  position: map_location,
-                                  map: map,
-                              });
-                          });
-                      }
-                  }
-          );
-      }
-      drawMap('#{@space.mall_name}');
-    :css
-      html { height: 100% }
-      body { height: 100% }
-      #map { height: 450px; width: 450px}
+  .show__title
+    %h2 「#{@space.mall_name}」詳細ページ
+    =render partial: '/likes/like_space', locals:{ space: @space }
+  .show__detail
+    .show__detail__left
+      .show__detail__left__image
+        = image_tag @space.images[0].image, size: "400x300",id:"main-photo"
+        .show__left__image__mini
+          - @images.each do |i|
+            = image_tag i.image, size: "60x60", class:"mini-photo"
+      .show__detail__left__info
+        .row
+          %span.keys 所在地
+          %span.values #{@space.location}
+        .row
+          %span.keys 施設名称
+          %span.values #{@space.mall_name}
+        .row
+          %span.keys フロア
+          %span.values #{@space.floor}階
+        .row
+          %span.keys 区画番号
+          %span.values #{@space.block_number}
+        .row
+          %span.keys 面積
+          %span.values #{(@space.area * 0.3025).floor(2)}坪
+        .row
+          %span.keys 月額賃料
+          %span.values #{(@space.rent * (@space.area * 0.3025).floor(2)).floor.to_s(:delimited)}円
+        .row
+          %span.keys 坪あたりの賃料
+          %span.values #{@space.rent.to_s(:delimited)}円
+        .row
+          %span.keys 誘致希望業種
+          %span.values #{@space.sector_i18n}
+    .show__detail__right
+      #map
+      :javascript
+        function drawMap(address) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode(
+                    {
+                        'address': address,
+                        'region': 'jp'
+                    },
+                    function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            google.maps.event.addDomListener(window, 'load', function () {
+                                var map_tag = document.getElementById('map');
+                                var map_location = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+                                var map_options =
+                                {
+                                    zoom: 13,
+                                    center: map_location,
+                                    disableDefaultUI: true,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                };
+                                var map = new google.maps.Map(map_tag, map_options);
+                                var marker = new google.maps.Marker({
+                                    position: map_location,
+                                    map: map,
+                                });
+                            });
+                        }
+                    }
+            );
+        }
+        drawMap('#{@space.mall_name}');
+      :css
+        html { height: 100% }
+        body { height: 100% }
+        #map { height: 600px; width: 600px}
 

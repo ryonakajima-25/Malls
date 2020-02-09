@@ -6,8 +6,8 @@ class CreateSpaces < ActiveRecord::Migration[5.0]
       t.integer :floor,          null: false
       t.integer :block_number,   null: false
       t.decimal :area,           null: false , precision: 6, scale: 2
-      t.integer :rent
-      t.integer :sector
+      t.integer :rent,           null: false
+      t.integer :sector,         default: "特になし"
       t.references :user,    foreign_key: true
       t.timestamps
     end
