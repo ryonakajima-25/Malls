@@ -266,12 +266,12 @@ brand2 = Brand.create!(
 )
 
 image18 = Image.create!(
-  image:            open("#{Rails.root}/db/default_images/b-1_1.jpg"),
+  image:            open("#{Rails.root}/db/default_images/b-2_1.jpg"),
   brand_id:        "2"
 )
 
 image19 = Image.create!(
-  image:            open("#{Rails.root}/db/default_images/b-1_2.jpg"),
+  image:            open("#{Rails.root}/db/default_images/b-2_2.jpg"),
   brand_id:        "2"
 )
 
