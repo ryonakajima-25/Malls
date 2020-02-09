@@ -98,7 +98,7 @@
     font-size: 32px;
     padding: 20px 0;
   }
-  &__space {
+  &__space, &__brand {
     .row{
       font-size: 18px;
       padding: 15px 0;
@@ -110,13 +110,24 @@
         font-size: 24px;
         line-height: 40px;
       }
-      input, select {
+      input, select, textarea {
         height: 40px;
         width: 600px;
         border-radius: 3px;
         border: solid 1px $color_1;
       }
-      #space_image-box {
+      textarea {
+        height: 120px;
+      }
+      .check_box {
+        height: 15px;
+        margin: auto 0;
+        input {
+          height: 15px;
+          width: 30px;
+        }
+      }
+      #space_image-box, #brand_image-box {
         input {  
           border: none;  
           width: 450px;
@@ -133,7 +144,7 @@
       border-radius: 5px;
       margin: 15px 0;
       &:hover {
-        background-color: $color_dv1;
+        background-color: $color_1;
         color: white;
         transition: 0.5s;
       }
