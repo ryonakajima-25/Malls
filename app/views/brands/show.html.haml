@@ -1,11 +1,12 @@
 .show
   .show__title
     %h2 「#{@brand.name}」詳細ページ
-    =render partial: '/likes/like_brand', locals:{ brand: @brand }
+    = render partial: '/likes/like_brand', locals:{ brand: @brand }
   .show__detail
     .show__detail__left
       .show__detail__left__image 
-        = image_tag @brand.images[0].image, size: "600x450",id:"main-photo"
+        - if @brand.images[0]
+          = image_tag @brand.images[0].image, size: "600x450",id:"main-photo"
         .show__left__image__mini
           - @images.each do |i|
             = image_tag i.image, size: "100x75", class:"mini-photo"

@@ -1,0 +1,41 @@
+.form__space
+  = form_for @space do |f|
+    .row
+      %span 所在地
+      = f.text_field :location
+    .row
+      %span 施設名称
+      = f.text_field :mall_name
+    .row
+      %span 階数
+      = f.number_field :floor
+    .row
+      %span 区画番号
+      = f.number_field :block_number
+    .row
+      %span 面積（㎡）
+      = f.number_field :area, step: "0.01"
+    .row
+      %span 賃料（坪あたり月額）
+      = f.number_field :rent
+    .row
+      %span 募集業種
+      = f.select :sector, [['物販店舗', :retail],['飲食店舗', :food],['サービス店舗', :service]]
+    .row
+      %span 画像
+      #space_image-box
+        #space_previews
+          - if @space.persisted?
+            - @space.images.each_with_index do |image, x|
+              = image_tag image.image.url, data:{ index: x }, width: "120", height: '100'
+        = f.fields_for :images do |i|
+          .js-file_group{"data-index" => "#{i.index}"}
+            = i.file_field :image, class: 'js-file', id: 'img-file'
+            %span.js-remove 削除
+          - if @space.persisted?
+            = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+        - if @space.persisted?
+          .js-file_group{"data-index" => "#{@space.images.count}"}
+            = file_field_tag :image, name: "space[images_attributes][#{@space.images.count}][image]", class: 'js-file'
+            %span.js-remove 削除
+    = f.submit '送信', class: 'send-btn'
