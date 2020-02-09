@@ -93,55 +93,73 @@
 // ----------------- new, edit -------------------
 
 .form {
-  padding: 15px;
-  &__table {
-    padding: 15px;
-    table {
-      border-collapse: collapse;
-      font-size: 18px;
-      td {
-        border: solid 1px black;
-        padding: 5px;
-        #brand_name, 
-        #brand_category_small,
-        #space_location,
-        #space_mall_name,
-        #space_sector {
-          height: 24px;
-          width: 600px;
-          font-size: 16px;
-        }
-        #brand_area_min,
-        #brand_area_max,
-        #space_floor,
-        #space_block_number,
-        #space_area,
-        #space_rent {
-          height: 24px;
-          width: 120px;
-          font-size: 16px;
-        }
-        textarea {
-          height: 72px;
-          width: 600px;
-          font-size: 16px;
-        }
-        .fa-image {
-          font-size: 40px;
-        }
-      }
-    }
-    .send-btn {
-      width: 60px;
-      font-size: 20px;
-      height: 40px;
-      margin: 15px;
-      &:hover {
-      cursor: pointer;
-      color: white;
-      background-color: $color_1;
-      }
-    }
-    
+  padding: 30px;
+  &__title{
+    font-size: 32px;
+    padding: 20px 0;
   }
+  &__space {
+    .row{
+      font-size: 18px;
+      padding: 15px 0;
+      border-bottom: solid 1px white;
+      display: flex;
+      span {
+        width: 300px;
+        display: inline-block;
+        font-size: 24px;
+      }
+      input, select {
+        height: 40px;
+        width: 600px;
+        border-radius: 3px;
+        border: solid 1px $color_1;
+      }
+    }
+  }
+  // &__space {
+  //     font-size: 18px;
+  //     td {
+  //       border: solid 1px black;
+  //       padding: 5px;
+  //       #brand_name, 
+  //       #brand_category_small,
+  //       #space_location,
+  //       #space_mall_name,
+  //       #space_sector {
+  //         height: 24px;
+  //         width: 600px;
+  //         font-size: 16px;
+  //       }
+  //       #brand_area_min,
+  //       #brand_area_max,
+  //       #space_floor,
+  //       #space_block_number,
+  //       #space_area,
+  //       #space_rent {
+  //         height: 24px;
+  //         width: 120px;
+  //         font-size: 16px;
+  //       }
+  //       textarea {
+  //         height: 72px;
+  //         width: 600px;
+  //         font-size: 16px;
+  //       }
+  //       .fa-image {
+  //         font-size: 40px;
+  //       }
+  //     }
+  //   .send-btn {
+  //     width: 60px;
+  //     font-size: 20px;
+  //     height: 40px;
+  //     margin: 15px;
+  //     &:hover {
+  //     cursor: pointer;
+  //     color: white;
+  //     background-color: $color_1;
+  //     }
+  //   }
+  // }
 }

@@ -1,31 +1,31 @@
 .form
   .form__title
     %h2 リーシング区画を登録
-  .form__table
+  .form__space
     = form_for @space do |f|
       .row
-        所在地
+        %span 所在地
         = f.text_field :location
       .row
-      施設名称
-      = f.text_field :mall_name
+        %span 施設名称
+        = f.text_field :mall_name
       .row
-        階数
+        %span 階数
         = f.number_field :floor
       .row
-        区画番号
+        %span 区画番号
         = f.number_field :block_number
       .row
-        面積（㎡）
+        %span 面積（㎡）
         = f.number_field :area, step: "0.01"
       .row
-        賃料（坪あたり月額）
+        %span 賃料（坪あたり月額）
         = f.number_field :rent
       .row
-        募集業種
+        %span 募集業種
         = f.select :sector, [['物販店舗', :retail],['飲食店舗', :food],['サービス店舗', :service]]
       .row
-        画像
+        %span 画像
         #space_image-box
           #space_previews
             - if @space.persisted?
@@ -40,5 +40,5 @@
           - if @space.persisted?
             .js-file_group{"data-index" => "#{@space.images.count}"}
               = file_field_tag :image, name: "space[images_attributes][#{@space.images.count}][image]", class: 'js-file'
-              .js-remove 削除
+              -# .js-remove 削除
       = f.submit '送信', class: 'send-btn'
