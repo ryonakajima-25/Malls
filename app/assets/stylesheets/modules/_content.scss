@@ -17,7 +17,7 @@
     padding: 10px;
     position: relative;
     &__item {
-      width: 550px;
+      width: 450px;
     }
     &__like {
       position: absolute;
@@ -84,58 +84,6 @@
     }
   }
 }
-
-
-// .title {
-//   display: flex;
-//   margin: 15px;
-//   h1 {
-//     font-size: 36px;
-//     padding-right: 24px;
-//   }
-//   #like__form{
-//     display: flex;
-//     height: 36px;
-//     a, i, span {
-//       padding: 0 5px 0 0;
-//       margin: 0;
-//       line-height: 36px;
-//       font-size: 32px;
-//       display: inline-block;
-//       vertical-align: middle;
-//     }
-//     i { color: $color_1;}
-//   }
-  
-//   a, i, p{
-//     font-size: 32px;
-//     line-height: 32px;
-//     padding: 5px;
-//     display: flex;
-//   }
-// }
-// .show {
-//   margin: 15px;
-//   display: flex;
-//   &__left {
-//     width: 700px;
-//     margin: 15px;
-//     img {
-//       zoom: 1.2;
-//     }
-//     &__info {
-//       padding-top: 15px;
-//       table {
-//         border-collapse: collapse;
-//       }
-//       td {
-//         font-size: 16px;
-//         padding: 10px;
-//         border: solid 1px black;
-//       }
-//     }
-//   }
-// }
 
 // ----------------- new, edit -------------------
 
