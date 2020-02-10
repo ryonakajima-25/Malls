@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200206131047) do
+ActiveRecord::Schema.define(version: 20200210023522) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                         null: false
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20200206131047) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["user_id"], name: "index_brands_on_user_id", using: :btree
+  end
+
+  create_table "conversations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "entries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "conversation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_entries_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_entries_on_user_id", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,6 +60,16 @@ ActiveRecord::Schema.define(version: 20200206131047) do
     t.index ["brand_id"], name: "index_likes_on_brand_id", using: :btree
     t.index ["space_id"], name: "index_likes_on_space_id", using: :btree
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "content",         limit: 65535
+    t.integer  "user_id"
+    t.integer  "conversation_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_spaces, through: :likes, source: :space
   has_many :liked_brands, through: :likes, source: :brand
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 
   enum genre: { 
     developer:  1,  # 商業施設

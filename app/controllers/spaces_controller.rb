@@ -25,7 +25,7 @@ class SpacesController < ApplicationController
     @images = @space.images
   end
 
-  def updated
+  def update
     @images = @space.images
     if @space.images.present? && @space.update(space_params)
       redirect_to space_path(@space) 
@@ -48,7 +48,7 @@ class SpacesController < ApplicationController
 
   private
   def space_params
-    params.require(:space).permit(:location, :mall_name, :floor, :block_number, :area, :rent, :sector, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:space).permit(:location, :mall_name, :floor, :block_number, :area, :rent, :sector, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_space

@@ -7,7 +7,18 @@
   - else
     - @brands.each do |brand|
       = render partial: "brands/brand", locals: { brand: brand }
-
+  .title
+    .message
+      - if @user.id == current_user.id
+      - else
+        - if @isConversation == true
+          = link_to conversation_path(@conversationId) do
+            メッセージを送信
+        - else
+          = form_for @conversation do |f|
+            = fields_for @entry do |e|
+              = e.hidden_field :user_id, :value=> @user.id
+            = f.submit "チャットを始める"
   .title
     %h3 #{@user.name}さんがいいねした商業施設
   - @user.liked_spaces.each do |space|

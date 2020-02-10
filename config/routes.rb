@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   resources :users, only: [:show]
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :messages, only: [:create]
+  resources :conversations, only: [:create, :show, :index] 
 end
