@@ -8,9 +8,9 @@
     - @brands.each do |brand|
       = render partial: "brands/brand", locals: { brand: brand }
   .title
-    .message
-      - if @user.id == current_user.id
-      - else
+    - if @user.id == current_user.id
+    - else
+      .message
         - if @isConversation == true
           = link_to conversation_path(@conversationId) do
             メッセージを送信

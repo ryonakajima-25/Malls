@@ -10,7 +10,7 @@
         = f.email_field :email, autofocus: true, autocomplete: "email"
       .account-page__form-box__field
         = f.label :パスワード　　　　
-        = f.password_field :password, autocomplete: "current-password"
+        = f.password_field :password, autocomplete: "current-password", style: 'none'
       .account-page__form-box__actions
         = f.submit "ログイン"
     = render "devise/shared/links"

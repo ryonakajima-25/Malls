@@ -27,6 +27,9 @@ $color_dv2:rgb(230, 248, 255);
 $color_te1:rgb(145, 1, 1);
 $color_te2:rgb(255, 245, 245);
 
+$color_gr1: rgb(95, 175, 49);
+$color_gr2: rgb(243, 253, 237);
+
 // ----------------その他----------------------
 
 *{
@@ -35,5 +38,9 @@ $color_te2:rgb(255, 245, 245);
 
 a {
   text-decoration: none;
+}
+
+#user_password {
+  font-family:inherit;
 }
 

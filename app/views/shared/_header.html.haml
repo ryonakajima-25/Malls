@@ -8,6 +8,9 @@
         施設一覧
       = link_to brands_path do
         ブランド一覧
+      - if user_signed_in?
+        = link_to conversations_path(current_user.id) do
+          メッセージ一覧
 
     - if user_signed_in?
       .list.right

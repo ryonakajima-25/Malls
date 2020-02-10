@@ -1,26 +1,22 @@
-%h1 DM
-%h4 参加者
-- @entries.each do |e|
-  %h5
-    %strong
-      %a{:href => "/users/#{e.user.id}"}
-        = e.user.name
-        さん
-%hr/
-- if @messages.present?
-  - @messages.each do |m|
-    %strong= m.content
-    %small
-      by
-      %strong
-        %a{:href => "/users/#{m.user_id}"}
-          = m.user.name
-          さん
-    %hr/
-- else
-  %h3.text-center メッセージはまだありません
-= form_for @message do |f|
-  = f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70
-  = f.hidden_field :conversation_id, value: @conversation.id
-  %br/
-  = f.submit "投稿する"
+.conversation
+  %h1 取引メッセージ
+  .conversation__user
+    %h4 会話参加者
+    - @entries.each do |e|
+      %span
+        = link_to user_path(e.user) do
+          = e.user.name
+  .conversation__contents
+    - if @messages.present?
+      - @messages.each do |m|
+        .messages
+          %span.name #{m.created_at.strftime("%Y/%m/%d %H:%M")}
+          %span.name #{m.user.name}：
+          %span= m.content
+    - else
+      %h3.text-center メッセージはまだありません
+  .conversation__form
+    = form_for @message do |f|
+      = f.text_area :content, placeholder: "メッセージを入力して下さい" 
+      = f.hidden_field :conversation_id, value: @conversation.id
+      = f.submit "投稿する"

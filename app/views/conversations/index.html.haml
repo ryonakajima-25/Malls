@@ -1,0 +1,10 @@
+.conversation
+  %h2 会話一覧
+  - if @entries.present?
+    - @entries.each do |e|
+      - e.conversation.users.each do |u|
+        - if current_user.id != u.id
+          = link_to conversation_path(e.conversation) do
+            %p= u.name
+  - else
+    メッセージ相手はいません
