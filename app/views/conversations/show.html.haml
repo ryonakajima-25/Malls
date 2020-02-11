@@ -9,10 +9,16 @@
   .conversation__contents
     - if @messages.present?
       - @messages.each do |m|
-        .messages
-          %span.name #{m.created_at.strftime("%Y/%m/%d %H:%M")}
-          %span.name #{m.user.name}：
-          %span= m.content
+        - if m.user_id == current_user.id
+          .messages.right
+            %span.content= m.content
+            %span.name #{m.created_at.strftime("%Y/%m/%d %H:%M")}
+            %span.name #{m.user.name}
+        - else
+          .messages.left
+            %span.name #{m.created_at.strftime("%Y/%m/%d %H:%M")}
+            %span.name #{m.user.name}
+            %span.content= m.content
     - else
       %h3.text-center メッセージはまだありません
   .conversation__form

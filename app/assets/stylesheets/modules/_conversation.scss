@@ -1,10 +1,15 @@
+// ----------------- show ----------------------
+
 .conversation {
   padding: 30px;
   font-size: 24px;
   background-color: $color_gr2;
-  h1 {
-    font-size: 32px;
-    padding: 10px 0;
+  &__title {
+    padding: 20px 0;
+    h1 {
+      font-size: 32px;
+      padding: 10px 0;
+    }
   }
   &__user {
     h4 {
@@ -21,8 +26,16 @@
       border-bottom: solid 1px white;
       padding: 10px 0;
       span.name {
-        font-size: 16px;
+        font-size: 12px;
         padding-right: 20px;
+        display: block;
+      }
+      span.content {
+        margin: 10px 0;
+        display: block;
+      }
+      &.right {
+        text-align: right;
       }
     }
   }
@@ -42,5 +55,14 @@
         cursor: pointer;
       }
     } 
+  }
+}
+
+// ----------------------- index -------------------------
+
+.conversation {
+  &__member {
+    padding: 15px 0;
+    border-bottom: solid 1px white;
   }
 }
