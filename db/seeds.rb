@@ -593,3 +593,57 @@ message = Message.create!(
   conversation_id:   "1",
   content:           "ご検討のほど宜しくお願いいたします。"
 )
+
+conversation = Conversation.create!()
+
+entry = Entry.create!(
+  user_id:           "1",
+  conversation_id:   "2"
+)
+
+entry = Entry.create!(
+  user_id:           "8",
+  conversation_id:   "2"
+)
+
+message = Message.create!(
+  user_id:           "2",
+  conversation_id:   "8",
+  content:           "お世話になっております。良物計画の阿部と申します。"
+)
+
+message = Message.create!(
+  user_id:           "2",
+  conversation_id:   "8",
+  content:           "一度、ご挨拶の機会をいただくことは可能でしょうか。"
+)
+
+conversation = Conversation.create!()
+
+entry = Entry.create!(
+  user_id:           "2",
+  conversation_id:   "3"
+)
+
+entry = Entry.create!(
+  user_id:           "5",
+  conversation_id:   "3"
+)
+
+message = Message.create!(
+  user_id:           "5",
+  conversation_id:   "3",
+  content:           "突然のご連絡失礼いたします。坂ビルの坂口と申します。"
+)
+
+message = Message.create!(
+  user_id:           "5",
+  conversation_id:   "3",
+  content:           "弊社は首都圏を中心に商業施設を展開しております。"
+)
+
+message = Message.create!(
+  user_id:           "5",
+  conversation_id:   "3",
+  content:           "御社が展開されているカフェ業態について、一度お話を伺いたくご連絡いたしました。"
+)

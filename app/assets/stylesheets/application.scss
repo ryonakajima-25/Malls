@@ -1,9 +1,12 @@
-@import "./reset";
-@import "./basic";
+@import "config/reset";
+@import "config/basic";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "slick/slick-theme";
+@import "slick/slick";
 
-@import "./common";
+
+@import "config/common";
 
 @import "modules/top";
 @import "modules/content";

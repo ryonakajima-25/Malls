@@ -1,4 +1,5 @@
-$(function(){
+// $(function(){
+$(document).on('turbolinks:load', ()=> {
   const buildFileField = (num)=> {
     const html = `<div data-index="${num}" class="js-file_group">
     <input class="js-file" type="file" name="brand[images_attributes][${num}][image]" id="brand_images_attributes_${num}_image">

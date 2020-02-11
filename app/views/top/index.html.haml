@@ -1,7 +1,31 @@
 .top.top-back
-  .top__btn
-    = link_to spaces_path do
-      施設一覧はコチラ 
-  .top__btn
-    = link_to brands_path do
-      ブランド一覧はコチラ 
+  .top__slick
+    .slick
+      .content
+        = image_tag "exp1.jpeg", class: "image", height: "390px", width: "85%"
+      .content
+        = image_tag "exp2.jpg", class: "image", height: "390px", width: "85%"
+      .content
+        = image_tag "exp3.jpg", class: "image", height: "390px", width: "85%"
+      .content
+        = image_tag "exp4.jpg", class: "image", height: "390px", width: "85%"
+      .content
+        = image_tag "exp5.jpg", class: "image", height: "390px", width: "85%"
+      .content
+        = image_tag "exp6.jpg", class: "image", height: "390px", width: "85%"
+      .content
+        = image_tag "exp7.jpg", class: "image", height: "390px", width: "85%"
+  .top__link
+    .left.btn
+      = link_to spaces_path do
+        施設一覧はコチラ 
+    .right.btn
+      = link_to brands_path do
+        ブランド一覧はコチラ 
+  .top__about
+    %h3 Mallsとは、、
+    %p “商業施設へ出店したい店舗”と“出店者を募集している商業施設”がマッチングできるサービスです。
+    %p 　・ECと平行した実店舗による出店で、マーケティング調査を実施したい
+    %p 　・新規の商業施設を開業する予定だが、想定来館者に響くようなテナントを誘致したい　　等々
+    %p 両者の要望を解決するソリューションサービスです。
+    %p 弊社は、世間に溢れる「汗かくパフォーマンスを正義とする営業マン」の削減に挑戦します！
