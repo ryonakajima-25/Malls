@@ -1,8 +1,11 @@
-// $(function(){
-$(document).on('turbolinks:load', ()=> {
-  $('.slick').slick({
-      dots: true,
+$(function() {
+  $('.slider').slick({
       autoplay: true,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 4000,
+      speed: 1600
+  });
+
+  $('.slick-dots li').on('mouseover', function() {
+    $('.slider').slick('goTo', $(this).index());
   });
 });
