@@ -26,6 +26,7 @@ class BrandsController < ApplicationController
   end
 
   def update
+    # binding.pry
     @images = @brand.images
     if @brand.images.present? && @brand.update(brand_params)
       redirect_to brand_path(@brand)
@@ -48,7 +49,7 @@ class BrandsController < ApplicationController
 
   private
   def brand_params
-    params.require(:brand).permit(:name, :category_large, :category_small, :target_sex, :area_max, :area_min, :sales_record, target_age: [], images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:brand).permit(:name, :category_large, :category_small, :target_sex, :area_max, :area_min, :sales_record, target_age: [], images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_brand

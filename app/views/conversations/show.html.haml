@@ -1,0 +1,28 @@
+.conversation
+  %h1 取引メッセージ
+  .conversation__user
+    %h4 会話参加者
+    - @entries.each do |e|
+      %span
+        = link_to user_path(e.user) do
+          = e.user.name
+  .conversation__contents
+    - if @messages.present?
+      - @messages.each do |m|
+        - if m.user_id == current_user.id
+          .messages.right
+            %span.content= m.content
+            %span.name #{m.created_at.strftime("%Y/%m/%d %H:%M")}
+            %span.name #{m.user.name}
+        - else
+          .messages.left
+            %span.name #{m.created_at.strftime("%Y/%m/%d %H:%M")}
+            %span.name #{m.user.name}
+            %span.content= m.content
+    - else
+      %h3.text-center メッセージはまだありません
+  .conversation__form
+    = form_for @message do |f|
+      = f.text_area :content, placeholder: "メッセージを入力して下さい" 
+      = f.hidden_field :conversation_id, value: @conversation.id
+      = f.submit "投稿する"

@@ -386,52 +386,52 @@ image29 = Image.create!(
   brand_id:        "7"
 )
 
-like1 = Like.create!(
+like = Like.create!(
   user_id:   "1",
   space_id:  "4"
 )
 
-like2 = Like.create!(
+like = Like.create!(
   user_id:   "2",
   space_id:  "3"
 )
 
-like3 = Like.create!(
+like = Like.create!(
   user_id:   "3",
   space_id:  "1"
 )
 
-like4 = Like.create!(
+like = Like.create!(
   user_id:   "4",
   space_id:  "7"
 )
 
-like5 = Like.create!(
+like = Like.create!(
   user_id:   "5",
   space_id:  "7"
 )
 
-like6 = Like.create!(
+like = Like.create!(
   user_id:   "5",
   space_id:  "5"
 )
 
-like7 = Like.create!(
+like = Like.create!(
   user_id:   "5",
   space_id:  "3"
 )
 
-like8 = Like.create!(
+like = Like.create!(
   user_id:   "6",
   space_id:  "3"
 )
 
-like9 = Like.create!(
+like = Like.create!(
   user_id:   "6",
   space_id:  "4"
 )
 
-like10 = Like.create!(
+like = Like.create!(
   user_id:   "6",
   space_id:  "1"
 )
@@ -544,4 +544,106 @@ like = Like.create!(
 like = Like.create!(
   user_id:   "8",
   brand_id:  "5"
+)
+
+conversation = Conversation.create!()
+
+entry = Entry.create!(
+  user_id:           "5",
+  conversation_id:   "1"
+)
+
+entry = Entry.create!(
+  user_id:           "1",
+  conversation_id:   "1"
+)
+
+message = Message.create!(
+  user_id:           "5",
+  conversation_id:   "1",
+  content:           "お世話になっております。サンプル商事のサンプル花子です。"
+)
+
+message = Message.create!(
+  user_id:           "5",
+  conversation_id:   "1",
+  content:           "御社所有の商業施設「アトレ品川」において、もし募集区画があればご紹介お願いできないでしょうか。"
+)
+
+message = Message.create!(
+  user_id:           "5",
+  conversation_id:   "1",
+  content:           "主力業態は、海鮮の京樽、カフェのスターバックスコーヒーです。"
+)
+
+message = Message.create!(
+  user_id:           "1",
+  conversation_id:   "1",
+  content:           "ご連絡いただき有難うございます。"
+)
+
+message = Message.create!(
+  user_id:           "1",
+  conversation_id:   "1",
+  content:           "施設紹介ページ記載の条件でよろしければ、ご案内が可能です。"
+)
+
+message = Message.create!(
+  user_id:           "1",
+  conversation_id:   "1",
+  content:           "ご検討のほど宜しくお願いいたします。"
+)
+
+conversation = Conversation.create!()
+
+entry = Entry.create!(
+  user_id:           "1",
+  conversation_id:   "2"
+)
+
+entry = Entry.create!(
+  user_id:           "8",
+  conversation_id:   "2"
+)
+
+message = Message.create!(
+  user_id:           "2",
+  conversation_id:   "8",
+  content:           "お世話になっております。良物計画の阿部と申します。"
+)
+
+message = Message.create!(
+  user_id:           "2",
+  conversation_id:   "8",
+  content:           "一度、ご挨拶の機会をいただくことは可能でしょうか。"
+)
+
+conversation = Conversation.create!()
+
+entry = Entry.create!(
+  user_id:           "2",
+  conversation_id:   "3"
+)
+
+entry = Entry.create!(
+  user_id:           "5",
+  conversation_id:   "3"
+)
+
+message = Message.create!(
+  user_id:           "5",
+  conversation_id:   "3",
+  content:           "突然のご連絡失礼いたします。坂ビルの坂口と申します。"
+)
+
+message = Message.create!(
+  user_id:           "5",
+  conversation_id:   "3",
+  content:           "弊社は首都圏を中心に商業施設を展開しております。"
+)
+
+message = Message.create!(
+  user_id:           "5",
+  conversation_id:   "3",
+  content:           "御社が展開されているカフェ業態について、一度お話を伺いたくご連絡いたしました。"
 )

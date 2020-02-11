@@ -31,3 +31,24 @@
 
 // --------------ユーザーページ-----------------------
 
+.title > .message {
+  margin: 60px auto;
+  width: 50%;
+  a, input {
+    font-size: 40px;
+    padding: 30px;
+    font-weight: bold;
+    width: 100%;
+    background-color: $color_gr1;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+      background-color: $color_1;
+      color: white;
+      transition: 0.5s;
+    }
+  }
+}

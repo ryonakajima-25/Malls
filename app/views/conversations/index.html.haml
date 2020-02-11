@@ -1,0 +1,13 @@
+.conversation
+  .conversation__title
+    %h1 会話しているユーザー一覧 
+    %span ※クリックでメッセージ画面へ進む
+  - if @entries.present?
+    - @entries.each do |e|
+      - e.conversation.users.each do |u|
+        - if current_user.id != u.id
+          .conversation__member
+            = link_to conversation_path(e.conversation) do
+              = u.name
+  - else
+    メッセージ相手はいません
