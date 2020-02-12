@@ -13,4 +13,5 @@
 # Author
 * 中島 良
 * nov.5x5@gmail.com
+* いつでもご連絡ください
  
