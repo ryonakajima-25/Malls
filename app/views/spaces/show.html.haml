@@ -5,7 +5,7 @@
   .show__detail
     .show__detail__left
       .show__detail__left__image
-        = image_tag @space.images[0].image, size: "600x450",id:"main-photo"
+        = image_tag @space.images[0].image, size: "400x300",id:"main-photo"
         .show__left__image__mini
           - @images.each do |i|
             = image_tag i.image, size: "100x75", class:"mini-photo"
@@ -70,5 +70,5 @@
       :css
         html { height: 100% }
         body { height: 100% }
-        #map { height: 600px; width: 600px}
+        #map { height: 500px; width: 500px}
 

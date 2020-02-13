@@ -2,7 +2,7 @@
 
 .conversation {
   padding: 30px;
-  font-size: 24px;
+  font-size: 18px;
   background-color: $color_gr2;
   &__title {
     padding: 20px 0;
@@ -17,6 +17,9 @@
     }
     span {
       padding-right: 10px;
+      a {
+        color: $color_gr1;
+      }
     }
   }
   &__contents {
@@ -47,6 +50,7 @@
     }
     input {
       background-color: $color_gr1;
+      color: white;
       padding: 20px;
       &:hover {
         background-color: $color_3;
@@ -64,5 +68,8 @@
   &__member {
     padding: 15px 0;
     border-bottom: solid 1px white;
+    a {
+      color: $color_gr1;
+    }
   }
 }
