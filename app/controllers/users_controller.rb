@@ -4,8 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @currentUserEntry = Entry.where(user_id: current_user.id)
     @userEntry = Entry.where(user_id: @user.id)
-    if @user.id == current_user.id
-    else
+    unless @user.id == current_user.id
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
           if cu.conversation_id == u.conversation_id then
@@ -14,8 +13,7 @@ class UsersController < ApplicationController
           end
         end
       end
-      if @isConversation
-      else
+      unless @isConversation
         @conversation = Conversation.new
         @entry = Entry.new
       end
