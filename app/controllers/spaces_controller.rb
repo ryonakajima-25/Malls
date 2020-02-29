@@ -4,7 +4,9 @@ class SpacesController < ApplicationController
   before_action :ensure_correct_user,  only: [:edit, :update, :destroy]
 
   def index
-    @spaces = Space.order("updated_at DESC").page(params[:page]).per(6)
+    @spaces = Space.includes(:user, :images).order("updated_at DESC").page(params[:page]).per(6)
+    @q = Space.ransack(params[:q])
+    @search_spaces = @q.result(distinct: true)
   end
 
   def new
@@ -46,6 +48,11 @@ class SpacesController < ApplicationController
     end
   end
 
+  def search
+    @q = Space.search(search_params)
+    @search_spaces = @q.result(distinct: true)
+  end
+
   private
   def space_params
     params.require(:space).permit(:location, :mall_name, :floor, :block_number, :area, :rent, :sector, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
@@ -63,5 +70,9 @@ class SpacesController < ApplicationController
     if @space.user_id != current_user.id
       redirect_to root_path
     end
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 end

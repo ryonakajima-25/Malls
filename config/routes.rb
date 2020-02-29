@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root "top#index"
   resources :spaces do
+    collection do
+      get 'search', to: 'spaces#search'
+    end
     resources :likes, only: [:create, :destroy]
   end
   resources :brands do

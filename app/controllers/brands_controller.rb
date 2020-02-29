@@ -4,7 +4,7 @@ class BrandsController < ApplicationController
   before_action :ensure_correct_user,  only: [:edit, :update, :destroy]
 
   def index
-    @brands = Brand.order("updated_at DESC").page(params[:page]).per(6)
+    @brands = Brand.includes(:user, :images).order("updated_at DESC").page(params[:page]).per(6)
   end
 
   def new
@@ -26,7 +26,6 @@ class BrandsController < ApplicationController
   end
 
   def update
-    # binding.pry
     @images = @brand.images
     if @brand.images.present? && @brand.update(brand_params)
       redirect_to brand_path(@brand)

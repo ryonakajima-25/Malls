@@ -1,0 +1,4 @@
+.spaces__search
+  %h1 検索結果
+  - @search_spaces.each do |space|
+    = render parcial: "space", locals: { space: space }

@@ -1,4 +1,7 @@
 .section
+  %h1 物件検索
+  = render 'search_form'
+.section
   - @spaces.each do |space|
     = render partial: "space", locals: { space: space }
   = paginate @spaces
