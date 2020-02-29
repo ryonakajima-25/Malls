@@ -70,6 +70,7 @@ gem 'kaminari', '~> 0.17.0'
 gem 'fog-aws'
 gem 'pry-rails'
 gem 'enum_help'
+gem 'ransack'
 
 group :production do
   gem 'unicorn', '5.4.1'
