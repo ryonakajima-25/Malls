@@ -1,4 +1,5 @@
 .spaces__search__form
   = search_form_for @q, url:search_spaces_path do |f|
-
+    = f.label :name_cont, 'モール名称'
+    = f.search_field :mall_name
     = f.submit

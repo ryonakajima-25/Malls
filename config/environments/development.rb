@@ -55,9 +55,9 @@ Rails.application.configure do
   # N+1問題を検知するためにgem'bullet'を導入。以下はその設定記述。
   config.after_initialize do
     Bullet.enable = true
-    Bullet.alert = true
+    Bullet.alert = false
     Bullet.bullet_logger = true
-    Bullet.console = true
+    Bullet.console = false
     Bullet.rails_logger = true
   end
 end

@@ -1,4 +1,7 @@
 .spaces__search
   %h1 検索結果
   - @search_spaces.each do |space|
-    = render parcial: "space", locals: { space: space }
+    -# = render parcial: "space", locals: { space: space }
+    = space.mall_name
+
+    -# 動かない！！！検索結果がall出てしまう

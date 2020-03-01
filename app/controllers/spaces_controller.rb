@@ -73,6 +73,6 @@ class SpacesController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit!
+    params.require(:q).permit(:mall_name)
   end
 end
